@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { margin:0; background:#F7F6F3; -webkit-font-smoothing:antialiased; }
+  ::selection { background:#1E40AF; color:#fff; }
+  .cl-field { width:100%; background:#fff; border:1px solid rgba(17,22,31,.14); border-radius:11px; padding:13px 14px; color:#11161F; font-size:14.5px; font-family:inherit; outline:none; transition:border-color .2s, box-shadow .2s; }
+  .cl-field:focus { border-color:#1E40AF; box-shadow:0 0 0 3px rgba(30,64,175,.12); }
+  .cl-field::placeholder { color:#9298A4; }
+  .cl-label { display:block; font-size:12.5px; font-weight:600; color:#41495A; margin-bottom:7px; }
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} *{animation-duration:.001ms!important;} }
+</style>
+</helmet>
+<div ref="{{ rootRef }}" style="font-family:'Geist',system-ui,-apple-system,sans-serif; color:#11161F; background:#F7F6F3; overflow-x:hidden;">
+
+<dc-import name="ClipNav" active="contact" hint-size="100%,1px"></dc-import>
+
+<!-- HERO -->
+<section style="position:relative; padding:148px 0 40px;">
+  <div style="position:absolute; inset:0; background-image:linear-gradient(rgba(17,22,31,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(17,22,31,.035) 1px,transparent 1px); background-size:54px 54px; -webkit-mask-image:radial-gradient(120% 80% at 50% 0%,#000 16%,transparent 68%); mask-image:radial-gradient(120% 80% at 50% 0%,#000 16%,transparent 68%); pointer-events:none;"></div>
+  <div style="max-width:1240px; margin:0 auto; padding:0 28px; position:relative; max-width:760px;" data-reveal>
+    <div style="font-family:'Geist Mono',monospace; font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:#1E40AF; margin-bottom:16px;">/ Get a quote</div>
+    <h1 style="margin:0; max-width:760px; font-size:clamp(34px,4.6vw,56px); line-height:1.03; letter-spacing:-.03em; font-weight:300;">Tell us about your project. <span style="font-weight:700;">Get a free quote.</span></h1>
+  </div>
+</section>
+
+<!-- FORM + NEXT -->
+<section style="padding:24px 0 84px;">
+  <div style="max-width:1240px; margin:0 auto; padding:0 28px; display:grid; grid-template-columns:1.15fr .85fr; gap:46px; align-items:start;" data-contact-grid>
+    <!-- FORM -->
+    <div data-reveal style="border:1px solid rgba(17,22,31,.08); border-radius:22px; background:#fff; padding:34px; box-shadow:0 24px 60px -38px rgba(17,22,31,.3);">
+      <div data-form-wrap>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+          <div><label class="cl-label" for="f-name">Full name</label><input id="f-name" data-req class="cl-field" type="text" placeholder="Rahul Sharma"></div>
+          <div><label class="cl-label" for="f-email">Work email</label><input id="f-email" data-req data-email class="cl-field" type="email" placeholder="rahul@company.in"></div>
+          <div><label class="cl-label" for="f-company">Company</label><input id="f-company" data-req class="cl-field" type="text" placeholder="Sharda Industries"></div>
+          <div><label class="cl-label" for="f-role">Role</label><input id="f-role" class="cl-field" type="text" placeholder="Founder / Director"></div>
+          <div><label class="cl-label" for="f-size">Company size</label><select id="f-size" class="cl-field"><option>1–20</option><option selected>20–100</option><option>100–500</option><option>500+</option></select></div>
+          <div><label class="cl-label" for="f-dept">What do you need?</label><select id="f-dept" class="cl-field"><option>Custom software</option><option>AI / AI agents</option><option>Automation</option><option>Data &amp; dashboards</option><option>Digital marketing</option><option>Not sure yet</option></select></div>
+        </div>
+        <div style="margin-top:16px;"><label class="cl-label" for="f-msg">What do you want to build or improve?</label><textarea id="f-msg" class="cl-field" rows="4" placeholder="e.g. we need a custom inventory app + a WhatsApp chatbot for orders…" style="resize:vertical;"></textarea></div>
+        <div data-error style="display:none; margin-top:14px; font-size:13.5px; color:#B42318; background:#FEF3F2; border:1px solid #FECDCA; border-radius:10px; padding:11px 13px;"></div>
+        <button data-submit style="margin-top:18px; width:100%; display:flex; align-items:center; justify-content:center; gap:9px; font-size:15.5px; font-weight:600; color:#fff; background:#1E40AF; border:none; border-radius:12px; padding:15px; cursor:pointer; font-family:inherit; box-shadow:0 10px 26px rgba(30,64,175,.3); transition:transform .2s, background .2s;" style-hover="transform:translateY(-2px); background:#1B348C;">Get my free quote <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        <p style="margin:14px 0 0; font-size:12.5px; color:#9298A4; text-align:center;">No spam. We'll only use this to prepare your quote.</p>
+      </div>
+      <div data-success style="display:none; text-align:center; padding:30px 10px;">
+        <span style="width:64px; height:64px; border-radius:18px; background:#ECFDF5; display:inline-flex; align-items:center; justify-content:center;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#15803D" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4 12 14.01l-3-3"/></svg></span>
+        <h3 style="margin:20px 0 0; font-size:22px; font-weight:600; letter-spacing:-.02em;">Request received.</h3>
+        <p style="margin:10px auto 0; font-size:15px; color:#48505F; max-width:380px;" data-success-msg>Thanks — we'll be in touch within one business day to discuss your project.</p>
+      </div>
+    </div>
+    <!-- NEXT + INFO -->
+    <div data-reveal data-reveal-delay="120" style="display:grid; gap:18px;">
+      <div style="border-radius:20px; background:linear-gradient(155deg,#0A0E1A,#11193A); color:#fff; padding:28px; position:relative; overflow:hidden;">
+        <div style="position:absolute; inset:0; background-image:radial-gradient(rgba(255,255,255,.05) 1px,transparent 1px); background-size:3px 3px; opacity:.5;"></div>
+        <div style="position:relative; font-family:'Geist Mono',monospace; font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:#A9C2FF; margin-bottom:18px;">What happens next</div>
+        <ol style="position:relative; list-style:none; margin:0; padding:0; display:grid; gap:16px;">
+          <li style="display:flex; gap:13px; align-items:flex-start;"><span style="flex:0 0 auto; width:26px; height:26px; border-radius:8px; background:rgba(34,211,238,.15); border:1px solid rgba(34,211,238,.3); display:flex; align-items:center; justify-content:center; font-family:'Geist Mono',monospace; font-size:12px; color:#22D3EE;">1</span><div><div style="font-weight:600; font-size:14.5px;">Discovery call · 30 min</div><div style="font-size:13px; color:#AEB7CC; margin-top:2px;">Goals, requirements &amp; budget.</div></div></li>
+          <li style="display:flex; gap:13px; align-items:flex-start;"><span style="flex:0 0 auto; width:26px; height:26px; border-radius:8px; background:rgba(34,211,238,.15); border:1px solid rgba(34,211,238,.3); display:flex; align-items:center; justify-content:center; font-family:'Geist Mono',monospace; font-size:12px; color:#22D3EE;">2</span><div><div style="font-weight:600; font-size:14.5px;">Proposal · within a few days</div><div style="font-size:13px; color:#AEB7CC; margin-top:2px;">Clear scope, timeline &amp; fixed quote.</div></div></li>
+          <li style="display:flex; gap:13px; align-items:flex-start;"><span style="flex:0 0 auto; width:26px; height:26px; border-radius:8px; background:rgba(34,211,238,.15); border:1px solid rgba(34,211,238,.3); display:flex; align-items:center; justify-content:center; font-family:'Geist Mono',monospace; font-size:12px; color:#22D3EE;">3</span><div><div style="font-weight:600; font-size:14.5px;">We start building</div><div style="font-size:13px; color:#AEB7CC; margin-top:2px;">Delivered on time, with you in the loop.</div></div></li>
+        </ol>
+      </div>
+      <div style="border:1px solid rgba(17,22,31,.08); border-radius:20px; background:#fff; padding:24px;">
+        <div style="font-family:'Geist Mono',monospace; font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:#7A828F; margin-bottom:14px;">Prefer to reach out?</div>
+        <div style="display:flex; align-items:center; gap:11px; margin-bottom:12px;"><span style="width:34px; height:34px; border-radius:10px; background:#EEF2FF; display:flex; align-items:center; justify-content:center;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#1E40AF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2.5"/><path d="m3 6 9 7 9-7"/></svg></span><div><div style="font-size:14px; font-weight:600;">hello@clipupp.com</div><div style="font-size:12.5px; color:#6A7180;">Replies within a day</div></div></div>
+        <div style="display:flex; align-items:center; gap:11px;"><span style="width:34px; height:34px; border-radius:10px; background:#ECFEFF; display:flex; align-items:center; justify-content:center;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#0E7490" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></span><div><div style="font-size:14px; font-weight:600;">+91 80 1234 5678</div><div style="font-size:12.5px; color:#6A7180;">Mon–Fri, 10–7 IST</div></div></div>
+      </div>
+      <div style="border:1px solid rgba(17,22,31,.08); border-radius:20px; background:#fff; padding:24px;">
+        <div style="font-family:'Geist Mono',monospace; font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:#7A828F; margin-bottom:14px;">Offices</div>
+        <div style="display:flex; gap:18px; flex-wrap:wrap;">
+          <div><div style="font-size:14px; font-weight:600;">Bengaluru</div><div style="font-size:12.5px; color:#6A7180;">HQ</div></div>
+          <div><div style="font-size:14px; font-weight:600;">Pune</div><div style="font-size:12.5px; color:#6A7180;">Office</div></div>
+          <div><div style="font-size:14px; font-weight:600;">Remote</div><div style="font-size:12.5px; color:#6A7180;">across India</div></div>
+        </div>
+        <div style="margin-top:16px; height:120px; border-radius:12px; background:linear-gradient(135deg,#11193A,#0A0E1A); position:relative; overflow:hidden; border:1px solid rgba(17,22,31,.1);">
+          <div style="position:absolute; inset:0; background-image:linear-gradient(rgba(99,141,255,.18) 1px,transparent 1px),linear-gradient(90deg,rgba(99,141,255,.18) 1px,transparent 1px); background-size:22px 22px;"></div>
+          <span style="position:absolute; left:34%; top:46%; width:12px; height:12px; border-radius:50%; background:#22D3EE; box-shadow:0 0 0 5px rgba(34,211,238,.2);"></span>
+          <span style="position:absolute; left:58%; top:38%; width:9px; height:9px; border-radius:50%; background:#9DC0FF;"></span>
+          <span style="position:absolute; left:20%; top:64%; width:9px; height:9px; border-radius:50%; background:#9DC0FF;"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<dc-import name="ClipFooter" hint-size="100%,420px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  rootRef = React.createRef();
+  renderVals() { return { rootRef: this.rootRef }; }
+  componentDidMount() { const root = this.rootRef.current; this.setupReveal(root); this.setupForm(root); this.setupResponsive(root); }
+  setupReveal(root) {
+    if (!root) return;
+    const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const els = Array.from(root.querySelectorAll('[data-reveal]'));
+    if (reduced) { els.forEach(e => e.style.opacity = 1); return; }
+    const h = () => window.innerHeight || 800;
+    els.forEach(e => { const r = e.getBoundingClientRect(); if (r.top > h() * 0.9) { e.style.opacity = 0; e.style.transform = 'translateY(26px)'; e.style.transition = 'opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1)'; } });
+    const shown = new Set();
+    const reveal = e => { if (shown.has(e)) return; shown.add(e); const d = parseFloat(e.dataset.revealDelay || 0); e.style.transitionDelay = d + 'ms'; e.style.opacity = 1; e.style.transform = 'none'; };
+    if ('IntersectionObserver' in window) { const io = new IntersectionObserver(en => { en.forEach(x => { if (x.isIntersecting) { reveal(x.target); io.unobserve(x.target); } }); }, { threshold: .12, rootMargin: '0px 0px -6% 0px' }); els.forEach(e => { if (!shown.has(e)) io.observe(e); }); }
+    const vis = e => { const r = e.getBoundingClientRect(); return r.top < h() * .92 && r.bottom > -40; };
+    const check = () => els.forEach(e => { if (!shown.has(e) && vis(e)) reveal(e); });
+    check(); requestAnimationFrame(check);
+    window.addEventListener('scroll', () => requestAnimationFrame(check), { passive: true });
+    this._safety = setTimeout(() => els.forEach(reveal), 2600);
+  }
+  setupForm(root) {
+    const btn = root.querySelector('[data-submit]');
+    const err = root.querySelector('[data-error]');
+    const wrap = root.querySelector('[data-form-wrap]');
+    const success = root.querySelector('[data-success]');
+    const successMsg = root.querySelector('[data-success-msg]');
+    if (!btn) return;
+    const fail = (el, msg) => { err.textContent = msg; err.style.display = 'block'; if (el) { el.style.borderColor = '#F04438'; el.focus(); } };
+    btn.addEventListener('click', () => {
+      err.style.display = 'none';
+      const reqs = Array.from(root.querySelectorAll('[data-req]'));
+      for (const f of reqs) { f.style.borderColor = ''; if (!f.value.trim()) { return fail(f, 'Please fill in all required fields.'); } }
+      const email = root.querySelector('[data-email]');
+      if (email && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email.value.trim())) { return fail(email, 'Please enter a valid work email address.'); }
+      const name = (root.querySelector('#f-name').value.trim().split(' ')[0]) || 'there';
+      if (successMsg) successMsg.textContent = 'Thanks, ' + name + ' — we\u2019ll be in touch within one business day to discuss your project.';
+      wrap.style.display = 'none';
+      success.style.display = 'block';
+      success.scrollIntoView ? null : null;
+    });
+  }
+  setupResponsive(root) {
+    const apply = () => {
+      const w = window.innerWidth;
+      const g = root.querySelector('[data-contact-grid]'); if (g) g.style.gridTemplateColumns = w < 880 ? '1fr' : '1.15fr .85fr';
+    };
+    apply();
+    window.addEventListener('resize', apply);
+    this._apply = apply;
+  }
+  componentWillUnmount() { if (this._safety) clearTimeout(this._safety); if (this._apply) window.removeEventListener('resize', this._apply); }
+}
+</script>
+</body>
+</html>

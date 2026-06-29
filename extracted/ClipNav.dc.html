@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+</helmet>
+<div ref="{{ rootRef }}" style="font-family:'Geist',system-ui,-apple-system,sans-serif;">
+<header data-header style="position:fixed; top:0; left:0; right:0; z-index:90; transition:background .3s ease, box-shadow .3s ease, padding .3s ease, border-color .3s ease; border-bottom:1px solid transparent; padding:20px 0;">
+  <div style="max-width:1240px; margin:0 auto; padding:0 28px; display:flex; align-items:center; gap:28px;">
+    <a href="Clipupp.dc.html" data-page="home" style="display:flex; align-items:center; gap:10px; text-decoration:none; color:#11161F; margin-right:8px;">
+      <span style="width:30px; height:30px; border-radius:9px; background:linear-gradient(135deg,#2563EB,#1E40AF); display:flex; align-items:center; justify-content:center; box-shadow:0 4px 14px rgba(30,64,175,.35);">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h4l2-6 3 14 2-8h3"/></svg>
+      </span>
+      <span style="font-weight:700; font-size:19px; letter-spacing:-.02em;">{{ brand }}</span>
+    </a>
+    <nav style="display:flex; align-items:center; gap:4px; margin-left:auto;" data-desktop-nav>
+      <a href="Services.dc.html" data-page="services" data-link style="font-size:14.5px; font-weight:500; color:#41495A; text-decoration:none; padding:8px 12px; border-radius:8px; white-space:nowrap; transition:color .2s, background .2s;" style-hover="background:rgba(17,22,31,.05); color:#11161F;">Services</a>
+      <a href="Solutions.dc.html" data-page="solutions" data-link style="font-size:14.5px; font-weight:500; color:#41495A; text-decoration:none; padding:8px 12px; border-radius:8px; white-space:nowrap; transition:color .2s, background .2s;" style-hover="background:rgba(17,22,31,.05); color:#11161F;">Solutions</a>
+      <a href="CaseStudies.dc.html" data-page="cases" data-link style="font-size:14.5px; font-weight:500; color:#41495A; text-decoration:none; padding:8px 12px; border-radius:8px; white-space:nowrap; transition:color .2s, background .2s;" style-hover="background:rgba(17,22,31,.05); color:#11161F;">Case studies</a>
+      <a href="Pricing.dc.html" data-page="pricing" data-link style="font-size:14.5px; font-weight:500; color:#41495A; text-decoration:none; padding:8px 12px; border-radius:8px; white-space:nowrap; transition:color .2s, background .2s;" style-hover="background:rgba(17,22,31,.05); color:#11161F;">Engagement</a>
+      <a href="About.dc.html" data-page="about" data-link style="font-size:14.5px; font-weight:500; color:#41495A; text-decoration:none; padding:8px 12px; border-radius:8px; white-space:nowrap; transition:color .2s, background .2s;" style-hover="background:rgba(17,22,31,.05); color:#11161F;">About</a>
+    </nav>
+    <div style="display:flex; align-items:center; gap:12px; white-space:nowrap;" data-desktop-cta>
+      <a href="Contact.dc.html" style="font-size:14.5px; font-weight:500; color:#11161F; text-decoration:none; padding:9px 6px;">Sign in</a>
+      <a href="Contact.dc.html" style="display:inline-flex; align-items:center; gap:8px; font-size:14.5px; font-weight:600; color:#fff; background:#11161F; text-decoration:none; padding:11px 18px; border-radius:10px; transition:transform .2s, box-shadow .2s, background .2s; box-shadow:0 2px 10px rgba(17,22,31,.18);" style-hover="transform:translateY(-1px); box-shadow:0 8px 22px rgba(17,22,31,.28); background:#1E40AF;">
+        <span style="white-space:nowrap;">Get a quote</span>
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto;"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+    <button data-mobile-toggle aria-label="Open menu" style="display:none; align-items:center; justify-content:center; width:42px; height:42px; border:1px solid rgba(17,22,31,.12); background:#fff; border-radius:10px; cursor:pointer; color:#11161F; margin-left:auto;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+  </div>
+  <div data-mobile-menu style="display:none; padding:14px 28px 22px; background:#fff; border-top:1px solid rgba(17,22,31,.08); margin-top:14px;">
+    <a href="Services.dc.html" style="display:block; padding:13px 4px; font-weight:500; color:#11161F; text-decoration:none; border-bottom:1px solid rgba(17,22,31,.06);">Services</a>
+    <a href="Solutions.dc.html" style="display:block; padding:13px 4px; font-weight:500; color:#11161F; text-decoration:none; border-bottom:1px solid rgba(17,22,31,.06);">Solutions</a>
+    <a href="CaseStudies.dc.html" style="display:block; padding:13px 4px; font-weight:500; color:#11161F; text-decoration:none; border-bottom:1px solid rgba(17,22,31,.06);">Case studies</a>
+    <a href="Pricing.dc.html" style="display:block; padding:13px 4px; font-weight:500; color:#11161F; text-decoration:none; border-bottom:1px solid rgba(17,22,31,.06);">Engagement</a>
+    <a href="About.dc.html" style="display:block; padding:13px 4px; font-weight:500; color:#11161F; text-decoration:none; border-bottom:1px solid rgba(17,22,31,.06);">About</a>
+    <a href="Contact.dc.html" style="display:block; margin-top:14px; text-align:center; padding:13px; font-weight:600; color:#fff; background:#1E40AF; border-radius:10px; text-decoration:none;">Get a quote</a>
+  </div>
+</header>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1240,&quot;height&quot;:76},&quot;active&quot;:{&quot;editor&quot;:null,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  rootRef = React.createRef();
+  renderVals() { return { brand: 'Clipupp', rootRef: this.rootRef }; }
+  componentDidMount() {
+    const root = this.rootRef.current;
+    if (!root) return;
+    const header = root.querySelector('[data-header]');
+    // active link highlight
+    const active = this.props.active || 'home';
+    root.querySelectorAll('[data-link]').forEach(a => {
+      if (a.dataset.page === active) { a.style.color = '#1E40AF'; a.style.fontWeight = '600'; a.style.background = 'rgba(37,99,235,.08)'; }
+    });
+    // sticky shrink
+    const onScroll = () => {
+      const s = window.scrollY > 16;
+      header.style.background = s ? 'rgba(247,246,243,.82)' : 'transparent';
+      header.style.backdropFilter = s ? 'saturate(180%) blur(16px)' : 'none';
+      header.style.webkitBackdropFilter = s ? 'saturate(180%) blur(16px)' : 'none';
+      header.style.borderBottomColor = s ? 'rgba(17,22,31,.08)' : 'transparent';
+      header.style.boxShadow = s ? '0 6px 24px -16px rgba(17,22,31,.4)' : 'none';
+      header.style.padding = s ? '12px 0' : '20px 0';
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    // mobile menu
+    const toggle = root.querySelector('[data-mobile-toggle]');
+    const menu = root.querySelector('[data-mobile-menu]');
+    let open = false;
+    const setOpen = (v) => { open = v; menu.style.display = v ? 'block' : 'none'; toggle.setAttribute('aria-expanded', v ? 'true' : 'false'); };
+    toggle.addEventListener('click', () => setOpen(!open));
+    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setOpen(false)));
+    // responsive
+    const apply = () => {
+      const isMobile = window.innerWidth < 1024;
+      root.querySelector('[data-desktop-nav]').style.display = isMobile ? 'none' : 'flex';
+      root.querySelector('[data-desktop-cta]').style.display = isMobile ? 'none' : 'flex';
+      toggle.style.display = isMobile ? 'flex' : 'none';
+      if (!isMobile) menu.style.display = 'none';
+    };
+    apply();
+    window.addEventListener('resize', apply);
+    this._onScroll = onScroll; this._apply = apply;
+  }
+  componentWillUnmount() {
+    if (this._onScroll) window.removeEventListener('scroll', this._onScroll);
+    if (this._apply) window.removeEventListener('resize', this._apply);
+  }
+}
+</script>
+</body>
+</html>

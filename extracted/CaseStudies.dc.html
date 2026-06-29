@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { margin:0; background:#F7F6F3; -webkit-font-smoothing:antialiased; }
+  ::selection { background:#1E40AF; color:#fff; }
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} *{animation-duration:.001ms!important;} }
+</style>
+</helmet>
+<div ref="{{ rootRef }}" style="font-family:'Geist',system-ui,-apple-system,sans-serif; color:#11161F; background:#F7F6F3; overflow-x:hidden;">
+
+<dc-import name="ClipNav" active="cases" hint-size="100%,1px"></dc-import>
+
+<!-- HERO -->
+<section style="position:relative; padding:150px 0 50px;">
+  <div style="position:absolute; inset:0; background-image:linear-gradient(rgba(17,22,31,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(17,22,31,.035) 1px,transparent 1px); background-size:54px 54px; -webkit-mask-image:radial-gradient(120% 80% at 80% 0%,#000 18%,transparent 70%); mask-image:radial-gradient(120% 80% at 80% 0%,#000 18%,transparent 70%); pointer-events:none;"></div>
+  <div style="max-width:1240px; margin:0 auto; padding:0 28px; position:relative; display:flex; align-items:flex-end; justify-content:space-between; gap:30px; flex-wrap:wrap;" data-reveal>
+    <div style="max-width:680px;">
+      <div style="font-family:'Geist Mono',monospace; font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:#1E40AF; margin-bottom:16px;">/ Case studies</div>
+      <h1 style="margin:0; font-size:clamp(38px,5vw,64px); line-height:1.02; letter-spacing:-.035em; font-weight:300;">Outcomes, with the<br><span style="font-weight:700;">receipts attached.</span></h1>
+    </div>
+    <div style="display:flex; gap:30px;">
+      <div><div style="font-size:34px; font-weight:700; letter-spacing:-.03em;">₹20 Cr+</div><div style="font-size:13px; color:#6A7180;">cost saved for clients</div></div>
+      <div><div style="font-size:34px; font-weight:700; letter-spacing:-.03em;">30+</div><div style="font-size:13px; color:#6A7180;">projects delivered</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED -->
+<section style="padding:8px 0 56px;">
+  <div style="max-width:1240px; margin:0 auto; padding:0 28px;">
+    <article data-reveal style="position:relative; border-radius:24px; overflow:hidden; background:linear-gradient(150deg,#0A0E1A,#11193A); color:#fff; display:grid; grid-template-columns:1.05fr .95fr;" data-feat>
+      <div style="position:absolute; inset:0; background-image:radial-gradient(rgba(255,255,255,.05) 1px,transparent 1px); background-size:3px 3px; opacity:.5; pointer-events:none;"></div>
+      <div style="position:relative; padding:46px 44px;">
+        <div style="display:inline-flex; align-items:center; gap:8px; padding:6px 12px; border:1px solid rgba(255,255,255,.14); border-radius:8px; font-family:'Geist Mono',monospace; font-size:11px; letter-spacing:.05em; text-transform:uppercase; color:#A9C2FF;">Featured · Financial Services</div>
+        <h2 style="margin:22px 0 0; font-size:clamp(24px,3vw,32px); font-weight:600; letter-spacing:-.025em; line-height:1.12; max-width:440px;">Finovo cut loan approval from 3 days to 20 minutes — saving ₹1.4 Cr a year.</h2>
+        <div style="margin-top:22px; display:grid; gap:14px; max-width:470px;">
+          <div><div style="font-family:'Geist Mono',monospace; font-size:10.5px; letter-spacing:.05em; text-transform:uppercase; color:#69769B; margin-bottom:4px;">Challenge</div><p style="margin:0; font-size:14.5px; line-height:1.55; color:#AEB7CC;">Loan operations ran on spreadsheets, email, and three disconnected systems. Approvals took 3 days, and every month-end was a scramble.</p></div>
+          <div><div style="font-family:'Geist Mono',monospace; font-size:10.5px; letter-spacing:.05em; text-transform:uppercase; color:#69769B; margin-bottom:4px;">Solution</div><p style="margin:0; font-size:14.5px; line-height:1.55; color:#AEB7CC;">We built an AI-assisted underwriting workflow with human approval on every sanction — applications now route, score, and update themselves.</p></div>
+        </div>
+        <div style="display:flex; gap:30px; margin-top:28px; flex-wrap:wrap;">
+          <div><div style="font-size:36px; font-weight:700; letter-spacing:-.03em; color:#22D3EE;">₹1.4 Cr</div><div style="font-size:12px; color:#8C97B3;">saved / year</div></div>
+          <div><div style="font-size:36px; font-weight:700; letter-spacing:-.03em;">85%</div><div style="font-size:12px; color:#8C97B3;">less manual work</div></div>
+          <div><div style="font-size:36px; font-weight:700; letter-spacing:-.03em;">3 mo</div><div style="font-size:12px; color:#8C97B3;">to full ROI</div></div>
+        </div>
+      </div>
+      <div style="position:relative; padding:36px 36px 0; display:flex; align-items:flex-end; overflow:hidden;">
+        <div style="width:100%; background:#0E1426; border:1px solid rgba(255,255,255,.1); border-radius:16px 16px 0 0; padding:18px; box-shadow:0 -10px 50px -20px rgba(0,0,0,.6);">
+          <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:16px;"><div style="display:flex; align-items:center; gap:7px;"><span style="width:8px; height:8px; border-radius:50%; background:#22D3EE; box-shadow:0 0 8px #22D3EE;"></span><span style="font-family:'Geist Mono',monospace; font-size:11px; color:#9AA6C4;">loan-ops</span></div><span style="font-family:'Geist Mono',monospace; font-size:11px; color:#69769B;">live</span></div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:14px;">
+            <div style="background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.07); border-radius:11px; padding:13px;"><div style="font-family:'Geist Mono',monospace; font-size:9.5px; color:#69769B; text-transform:uppercase;">Auto-closed</div><div style="font-size:20px; font-weight:600; margin-top:4px;">847<span style="font-size:12px; color:#22D3EE;">/902</span></div></div>
+            <div style="background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.07); border-radius:11px; padding:13px;"><div style="font-family:'Geist Mono',monospace; font-size:9.5px; color:#69769B; text-transform:uppercase;">Exceptions</div><div style="font-size:20px; font-weight:600; margin-top:4px;">55</div></div>
+          </div>
+          <div style="background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.07); border-radius:11px; padding:15px;">
+            <div style="font-family:'Geist Mono',monospace; font-size:9.5px; color:#69769B; text-transform:uppercase; margin-bottom:12px;">Approval time · days</div>
+            <div style="display:flex; align-items:flex-end; gap:6px; height:70px;"><span style="flex:1; background:linear-gradient(180deg,#2563EB,#1E40AF); border-radius:4px 4px 0 0; height:100%;"></span><span style="flex:1; background:linear-gradient(180deg,#2563EB,#1E40AF); border-radius:4px 4px 0 0; height:74%;"></span><span style="flex:1; background:linear-gradient(180deg,#2563EB,#1E40AF); border-radius:4px 4px 0 0; height:52%;"></span><span style="flex:1; background:linear-gradient(180deg,#22D3EE,#0E7490); border-radius:4px 4px 0 0; height:33%;"></span><span style="flex:1; background:linear-gradient(180deg,#22D3EE,#0E7490); border-radius:4px 4px 0 0; height:30%;"></span></div>
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- FILTER + GRID -->
+<section style="padding:0 0 90px;">
+  <div style="max-width:1240px; margin:0 auto; padding:0 28px;">
+    <div data-reveal style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:24px;" data-filterbar>
+      <button data-filter="all" style="padding:9px 15px; border-radius:10px; border:1px solid rgba(17,22,31,.1); background:#fff; color:#41495A; font-size:13.5px; font-weight:600; cursor:pointer; font-family:inherit; transition:all .2s;">All</button>
+      <button data-filter="financial" style="padding:9px 15px; border-radius:10px; border:1px solid rgba(17,22,31,.1); background:#fff; color:#41495A; font-size:13.5px; font-weight:600; cursor:pointer; font-family:inherit; transition:all .2s;">Financial Services</button>
+      <button data-filter="logistics" style="padding:9px 15px; border-radius:10px; border:1px solid rgba(17,22,31,.1); background:#fff; color:#41495A; font-size:13.5px; font-weight:600; cursor:pointer; font-family:inherit; transition:all .2s;">Logistics</button>
+      <button data-filter="healthcare" style="padding:9px 15px; border-radius:10px; border:1px solid rgba(17,22,31,.1); background:#fff; color:#41495A; font-size:13.5px; font-weight:600; cursor:pointer; font-family:inherit; transition:all .2s;">Healthcare</button>
+      <button data-filter="manufacturing" style="padding:9px 15px; border-radius:10px; border:1px solid rgba(17,22,31,.1); background:#fff; color:#41495A; font-size:13.5px; font-weight:600; cursor:pointer; font-family:inherit; transition:all .2s;">Manufacturing</button>
+      <button data-filter="services" style="padding:9px 15px; border-radius:10px; border:1px solid rgba(17,22,31,.1); background:#fff; color:#41495A; font-size:13.5px; font-weight:600; cursor:pointer; font-family:inherit; transition:all .2s;">Professional</button>
+      <button data-filter="saas" style="padding:9px 15px; border-radius:10px; border:1px solid rgba(17,22,31,.1); background:#fff; color:#41495A; font-size:13.5px; font-weight:600; cursor:pointer; font-family:inherit; transition:all .2s;">SaaS</button>
+    </div>
+    <div data-grid style="display:grid; grid-template-columns:repeat(6,1fr); gap:18px; grid-auto-flow:dense;">
+      <article data-card data-industry="logistics" style="grid-column:span 4; border:1px solid rgba(17,22,31,.08); border-radius:20px; background:#fff; padding:30px; transition:transform .25s, box-shadow .25s, border-color .25s;" style-hover="transform:translateY(-4px); border-color:rgba(30,64,175,.35); box-shadow:0 24px 50px -28px rgba(17,22,31,.25);">
+        <div style="display:flex; align-items:center; justify-content:space-between;"><span style="font-family:'Geist Mono',monospace; font-size:11px; letter-spacing:.05em; text-transform:uppercase; color:#0E7490;">Logistics</span><span style="font-size:30px; font-weight:700; letter-spacing:-.03em; color:#1E40AF;">−90%</span></div>
+        <h3 style="margin:14px 0 0; font-size:21px; font-weight:600; letter-spacing:-.02em;">TransIndia Logistics put order-to-dispatch live in 6 weeks.</h3>
+        <p style="margin:10px 0 0; font-size:14px; color:#48505F; line-height:1.55;">Credit checks, inventory holds and accounting entries were manual across three systems. We built one workflow with human approval only above ₹5L — and errors fell 90%.</p>
+      </article>
+      <article data-card data-industry="financial" style="grid-column:span 2; border:1px solid rgba(17,22,31,.08); border-radius:20px; background:#0A0E1A; color:#fff; padding:28px; position:relative; overflow:hidden;">
+        <div style="position:absolute; inset:0; background-image:radial-gradient(rgba(255,255,255,.05) 1px,transparent 1px); background-size:3px 3px; opacity:.5;"></div>
+        <span style="position:relative; font-family:'Geist Mono',monospace; font-size:11px; letter-spacing:.05em; text-transform:uppercase; color:#7DE3F4;">Financial Services</span>
+        <div style="position:relative; font-size:34px; font-weight:700; letter-spacing:-.03em; margin-top:14px;">−38%</div>
+        <h3 style="position:relative; margin:8px 0 0; font-size:17px; font-weight:600;">Khata Finance halved KYC review time.</h3>
+      </article>
+      <article data-card data-industry="healthcare" style="grid-column:span 2; border:1px solid rgba(17,22,31,.08); border-radius:20px; background:#fff; padding:28px; transition:transform .25s, box-shadow .25s, border-color .25s;" style-hover="transform:translateY(-4px); border-color:rgba(30,64,175,.35); box-shadow:0 24px 50px -28px rgba(17,22,31,.25);">
+        <span style="font-family:'Geist Mono',monospace; font-size:11px; letter-spacing:.05em; text-transform:uppercase; color:#15803D;">Healthcare</span>
+        <div style="font-size:34px; font-weight:700; letter-spacing:-.03em; margin-top:14px; color:#11161F;">1,800h</div>
+        <h3 style="margin:8px 0 0; font-size:17px; font-weight:600;">MediCare Clinics automated patient intake &amp; billing.</h3>
+      </article>
+      <article data-card data-industry="manufacturing" style="grid-column:span 4; border:1px solid rgba(17,22,31,.08); border-radius:20px; background:#fff; padding:30px; transition:transform .25s, box-shadow .25s, border-color .25s;" style-hover="transform:translateY(-4px); border-color:rgba(30,64,175,.35); box-shadow:0 24px 50px -28px rgba(17,22,31,.25);">
+        <div style="display:flex; align-items:center; justify-content:space-between;"><span style="font-family:'Geist Mono',monospace; font-size:11px; letter-spacing:.05em; text-transform:uppercase; color:#B45309;">Manufacturing</span><span style="font-size:30px; font-weight:700; letter-spacing:-.03em; color:#1E40AF;">−40%</span></div>
+        <h3 style="margin:14px 0 0; font-size:21px; font-weight:600; letter-spacing:-.02em;">Sharda Industries replaced 14 spreadsheets with one live dashboard.</h3>
+        <p style="margin:10px 0 0; font-size:14px; color:#48505F; line-height:1.55;">Production and quality data lived in scattered spreadsheets across shifts. We built a custom dashboard with AI defect classification that cut manual handling 40% and surfaced issues in real time.</p>
+      </article>
+      <article data-card data-industry="services" style="grid-column:span 3; border:1px solid rgba(17,22,31,.08); border-radius:20px; background:#fff; padding:28px; transition:transform .25s, box-shadow .25s, border-color .25s;" style-hover="transform:translateY(-4px); border-color:rgba(30,64,175,.35); box-shadow:0 24px 50px -28px rgba(17,22,31,.25);">
+        <div style="display:flex; align-items:center; justify-content:space-between;"><span style="font-family:'Geist Mono',monospace; font-size:11px; letter-spacing:.05em; text-transform:uppercase; color:#7A4FCF;">Professional Services</span><span style="font-size:28px; font-weight:700; letter-spacing:-.03em; color:#1E40AF;">+22%</span></div>
+        <h3 style="margin:12px 0 0; font-size:19px; font-weight:600;">Brightline Consulting recovered 22% more billable time.</h3>
+        <p style="margin:8px 0 0; font-size:14px; color:#48505F; line-height:1.55;">A custom time-tracking and billing tool closed the leakage between work done and work actually invoiced.</p>
+      </article>
+      <article data-card data-industry="saas" style="grid-column:span 3; border:1px solid rgba(30,64,175,.25); border-radius:20px; background:linear-gradient(160deg,#EEF2FF,#F7F6F3); padding:28px; transition:transform .25s, box-shadow .25s, border-color .25s;" style-hover="transform:translateY(-4px); border-color:rgba(30,64,175,.5); box-shadow:0 24px 50px -28px rgba(17,22,31,.25);">
+        <div style="display:flex; align-items:center; justify-content:space-between;"><span style="font-family:'Geist Mono',monospace; font-size:11px; letter-spacing:.05em; text-transform:uppercase; color:#1E40AF;">SaaS &amp; Tech</span><span style="font-size:28px; font-weight:700; letter-spacing:-.03em; color:#1E40AF;">3×</span></div>
+        <h3 style="margin:12px 0 0; font-size:19px; font-weight:600;">Zencart deflected support tickets 3× faster.</h3>
+        <p style="margin:8px 0 0; font-size:14px; color:#48505F; line-height:1.55;">An AI chatbot with guard-railed auto-resolution handled the repetitive 60% of queries so agents focused on the rest.</p>
+      </article>
+    </div>
+    <p data-empty style="display:none; text-align:center; color:#6A7180; font-size:15px; padding:40px 0;">No case studies in this category yet — <a href="Contact.dc.html" style="color:#1E40AF;">talk to us</a> about yours.</p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="padding:0 0 96px;">
+  <div style="max-width:1240px; margin:0 auto; padding:0 28px;">
+    <div data-reveal style="position:relative; overflow:hidden; border-radius:28px; background:linear-gradient(150deg,#1E40AF,#152C75); color:#fff; padding:56px; text-align:center;">
+      <div style="position:absolute; inset:0; background-image:radial-gradient(rgba(255,255,255,.06) 1px,transparent 1px); background-size:3px 3px; opacity:.5;"></div>
+      <h2 style="position:relative; margin:0; font-size:clamp(26px,3.4vw,40px); line-height:1.05; letter-spacing:-.03em; font-weight:300;">Your result could be the next <span style="font-weight:700;">number on this page.</span></h2>
+      <a href="Contact.dc.html" style="position:relative; display:inline-flex; align-items:center; gap:9px; margin-top:26px; font-size:15.5px; font-weight:600; color:#0A0E1A; background:#22D3EE; text-decoration:none; padding:15px 26px; border-radius:12px; transition:transform .2s;" style-hover="transform:translateY(-2px);">Get a free quote <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<dc-import name="ClipFooter" hint-size="100%,420px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  rootRef = React.createRef();
+  renderVals() { return { rootRef: this.rootRef }; }
+  componentDidMount() { const root = this.rootRef.current; this.setupReveal(root); this.setupFilter(root); this.setupResponsive(root); }
+  setupReveal(root) {
+    if (!root) return;
+    const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const els = Array.from(root.querySelectorAll('[data-reveal]'));
+    if (reduced) { els.forEach(e => e.style.opacity = 1); return; }
+    const h = () => window.innerHeight || 800;
+    els.forEach(e => { const r = e.getBoundingClientRect(); if (r.top > h() * 0.9) { e.style.opacity = 0; e.style.transform = 'translateY(26px)'; e.style.transition = 'opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1)'; } });
+    const shown = new Set();
+    const reveal = e => { if (shown.has(e)) return; shown.add(e); const d = parseFloat(e.dataset.revealDelay || 0); e.style.transitionDelay = d + 'ms'; e.style.opacity = 1; e.style.transform = 'none'; };
+    if ('IntersectionObserver' in window) { const io = new IntersectionObserver(en => { en.forEach(x => { if (x.isIntersecting) { reveal(x.target); io.unobserve(x.target); } }); }, { threshold: .12, rootMargin: '0px 0px -6% 0px' }); els.forEach(e => { if (!shown.has(e)) io.observe(e); }); }
+    const vis = e => { const r = e.getBoundingClientRect(); return r.top < h() * .92 && r.bottom > -40; };
+    const check = () => els.forEach(e => { if (!shown.has(e) && vis(e)) reveal(e); });
+    check(); requestAnimationFrame(check);
+    window.addEventListener('scroll', () => requestAnimationFrame(check), { passive: true });
+    this._safety = setTimeout(() => els.forEach(reveal), 2600);
+  }
+  setupFilter(root) {
+    const btns = Array.from(root.querySelectorAll('[data-filter]'));
+    const cards = Array.from(root.querySelectorAll('[data-card]'));
+    const empty = root.querySelector('[data-empty]');
+    const activate = (key) => {
+      btns.forEach(b => {
+        const on = b.dataset.filter === key;
+        b.style.background = on ? '#1E40AF' : '#fff';
+        b.style.color = on ? '#fff' : '#41495A';
+        b.style.borderColor = on ? '#1E40AF' : 'rgba(17,22,31,.1)';
+      });
+      let shownCount = 0;
+      cards.forEach(c => { const show = key === 'all' || c.dataset.industry === key; c.style.display = show ? '' : 'none'; if (show) shownCount++; });
+      if (empty) empty.style.display = shownCount === 0 ? 'block' : 'none';
+    };
+    btns.forEach(b => b.addEventListener('click', () => activate(b.dataset.filter)));
+    activate('all');
+  }
+  setupResponsive(root) {
+    const apply = () => {
+      const w = window.innerWidth;
+      const grid = root.querySelector('[data-grid]');
+      if (grid) {
+        if (w < 680) { grid.style.gridTemplateColumns = '1fr'; root.querySelectorAll('[data-card]').forEach(c => c.style.gridColumn = 'span 1'); }
+        else { grid.style.gridTemplateColumns = 'repeat(6,1fr)'; const spans = ['span 4','span 2','span 2','span 4','span 3','span 3']; root.querySelectorAll('[data-card]').forEach((c, i) => c.style.gridColumn = w < 1000 ? (i % 2 ? 'span 3' : 'span 3') : (spans[i] || 'span 3')); }
+      }
+      const feat = root.querySelector('[data-feat]'); if (feat) feat.style.gridTemplateColumns = w < 860 ? '1fr' : '1.05fr .95fr';
+    };
+    apply();
+    window.addEventListener('resize', apply);
+    this._apply = apply;
+  }
+  componentWillUnmount() { if (this._safety) clearTimeout(this._safety); if (this._apply) window.removeEventListener('resize', this._apply); }
+}
+</script>
+</body>
+</html>

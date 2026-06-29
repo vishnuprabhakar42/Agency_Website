@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: #F7F6F3; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+  ::selection { background: #1E40AF; color: #fff; }
+  @keyframes cl-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  @keyframes cl-mesh { 0% { transform: translate(0,0) scale(1); } 50% { transform: translate(-6%,4%) scale(1.12); } 100% { transform: translate(0,0) scale(1); } }
+  @keyframes cl-mesh2 { 0% { transform: translate(0,0) scale(1.1); } 50% { transform: translate(8%,-5%) scale(1); } 100% { transform: translate(0,0) scale(1.1); } }
+  @keyframes cl-nodeGlow { 0%,100% { opacity: .35; } 50% { opacity: 1; } }
+  @keyframes cl-float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+  @keyframes cl-spin { to { transform: rotate(360deg); } }
+  @keyframes cl-pulseRing { 0% { transform: scale(.8); opacity:.6; } 100% { transform: scale(2.2); opacity:0; } }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; } }
+</style>
+</helmet>
+
+<div ref="{{ rootRef }}" style="font-family:'Geist',system-ui,-apple-system,'Segoe UI',sans-serif; color:#11161F; background:#F7F6F3; overflow-x:hidden; position:relative;">
+
+<!-- ============ NAV (shared) ============ -->
+<dc-import name="ClipNav" active="home" hint-size="100%,1px"></dc-import>
+
+<!-- ============ HERO ============ -->
+<section id="top" style="position:relative; padding:148px 0 70px;">
+  <!-- faint grid texture -->
+  <div style="position:absolute; inset:0; background-image:linear-gradient(rgba(17,22,31,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(17,22,31,.035) 1px,transparent 1px); background-size:54px 54px; -webkit-mask-image:radial-gradient(120% 90% at 70% 10%,#000 25%,transparent 75%); mask-image:radial-gradient(120% 90% at 70% 10%,#000 25%,transparent 75%); pointer-events:none;"></div>
+  <div style="max-width:1240px; margin:0 auto; padding:0 28px; position:relative; display:grid; grid-template-columns:minmax(0,1.04fr) minmax(0,.96fr); gap:46px; align-items:center;" data-hero-grid>
+    <!-- LEFT -->
+    <div data-reveal>
+      <div style="display:inline-flex; align-items:center; gap:9px; padding:7px 13px 7px 9px; border:1px solid rgba(30,64,175,.18); background:rgba(37,99,235,.06); border-radius:100px; font-family:'Geist Mono',monospace; font-size:11.5px; font-weight:500; letter-spacing:.06em; color:#1E40AF; text-transform:uppercase;">
+        <span style="display:inline-flex; width:18px; height:18px; border-radius:6px; background:#1E40AF; align-items:center; justify-content:center;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+        Built &amp; delivered, on time
+      </div>
+      <h1 style="margin:24px 0 0; font-size:clamp(40px,5.4vw,68px); line-height:1.01; letter-spacing:-.035em; font-weight:300; color:#11161F;">
+        The software your<br>business needs — built,<br><span style="font-weight:700;">shipped &amp; supported.</span>
+      </h1>
+      <p style="margin:26px 0 0; font-size:18.5px; line-height:1.55; color:#48505F; max-width:516px;">
+        {{ brand }} builds custom software, AI agents, automation, dashboards, and growth campaigns for Indian businesses — so you cut cost, save time, and move faster, without building an in-house tech team.
+      </p>
+      <div style="margin:34px 0 0; display:flex; flex-wrap:wrap; gap:13px; align-items:center;">
+        <a href="#contact" data-scroll="#contact" style="display:inline-flex; align-items:center; gap:9px; font-size:15.5px; font-weight:600; color:#fff; background:#1E40AF; text-decoration:none; padding:15px 24px; border-radius:12px; box-shadow:0 10px 28px rgba(30,64,175,.32); transition:transform .2s, box-shadow .2s;" style-hover="transform:translateY(-2px); box-shadow:0 16px 38px rgba(30,64,175,.42);">
+          Get a free quote
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="#cases" data-scroll="#cases" style="display:inline-flex; align-items:center; gap:9px; font-size:15.5px; font-weight:600; color:#11161F; background:#fff; border:1px solid rgba(17,22,31,.14); text-decoration:none; padding:15px 22px; border-radius:12px; transition:transform .2s, border-color .2s, box-shadow .2s;" style-hover="transform:translateY(-2px); border-color:rgba(30,64,175,.4); box-shadow:0 10px 26px rgba(17,22,31,.1);">
+          See our work
+        </a>
+      </div>
+      <div style="margin:38px 0 0; display:flex; align-items:center; gap:18px; flex-wrap:wrap;">
+        <div style="display:flex; align-items:center; gap:7px; font-family:'Geist Mono',monospace; font-size:11.5px; font-weight:500; letter-spacing:.04em; color:#6A7180;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1E40AF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg>
+          NDA-BACKED
+        </div>
+        <span style="width:4px; height:4px; border-radius:50%; background:#C7CAD1;"></span>
+        <div style="font-family:'Geist Mono',monospace; font-size:11.5px; font-weight:500; letter-spacing:.04em; color:#6A7180;">CODE &amp; IP YOURS</div>
+        <span style="width:4px; height:4px; border-radius:50%; background:#C7CAD1;"></span>
+        <div style="font-family:'Geist Mono',monospace; font-size:11.5px; font-weight:500; letter-spacing:.04em; color:#6A7180;">ON-TIME DELIVERY</div>
+        <span style="width:4px; height:4px; border-radius:50%; background:#C7CAD1;"></span>
+        <div style="font-size:13px; color:#6A7180;">Trusted by <strong style="color:#11161F;">growing</strong> Indian businesses</div>
+      </div>
+    </div>
+    <!-- RIGHT: flow diagram -->
+    <div data-reveal data-reveal-delay="120" style="position:relative;">
+      <div style="position:relative; border-radius:24px; background:linear-gradient(160deg,#0B1020 0%,#11193A 60%,#0B1020 100%); padding:22px; box-shadow:0 40px 90px -30px rgba(11,16,32,.6), 0 0 0 1px rgba(255,255,255,.05) inset;">
+        <!-- mesh glows -->
+        <div style="position:absolute; inset:0; overflow:hidden; border-radius:24px; pointer-events:none;">
+          <div style="position:absolute; width:340px; height:340px; left:-60px; top:-40px; background:radial-gradient(circle,rgba(37,99,235,.55),transparent 65%); filter:blur(18px); animation:cl-mesh 11s ease-in-out infinite;"></div>
+          <div style="position:absolute; width:300px; height:300px; right:-50px; bottom:-50px; background:radial-gradient(circle,rgba(34,211,238,.32),transparent 65%); filter:blur(18px); animation:cl-mesh2 13s ease-in-out infinite;"></div>
+        </div>
+        <!-- header chrome -->
+        <div style="position:relative; display:flex; align-items:center; justify-content:space-between; margin-bottom:14px;">
+          <div style="display:flex; align-items:center; gap:8px; font-family:'Geist Mono',monospace; font-size:11px; letter-spacing:.06em; color:#9AA6C4; text-transform:uppercase;">
+            <span style="width:7px; height:7px; border-radius:50%; background:#22D3EE; box-shadow:0 0 10px #22D3EE;"></span>
+            invoice-intake.flow · live
+          </div>
+          <div style="font-family:'Geist Mono',monospace; font-size:11px; color:#69769B;">312 runs / hr</div>
+        </div>
+        <!-- SVG flow -->
+        <svg data-flow viewBox="0 0 600 340" width="100%" style="display:block; position:relative; height:auto;">
+          <defs>
+            <linearGradient id="cl-edge" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#2563EB" stop-opacity=".35"/>
+              <stop offset="1" stop-color="#22D3EE" stop-opacity=".6"/>
+            </linearGradient>
+            <filter id="cl-glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+          </defs>
+          <!-- edges: 1 -> 3 (fan out), 3 -> 2 (collect) — symmetric about y=170 -->
+          <path id="cl-e1" d="M174 170 C 197 170 197 50 220 50" fill="none" stroke="url(#cl-edge)" stroke-width="1.6"/>
+          <path id="cl-e2" d="M174 170 L 220 170" fill="none" stroke="url(#cl-edge)" stroke-width="1.6"/>
+          <path id="cl-e3" d="M174 170 C 197 170 197 290 220 290" fill="none" stroke="url(#cl-edge)" stroke-width="1.6"/>
+          <path id="cl-e4" d="M380 50 C 403 50 403 100 426 100" fill="none" stroke="url(#cl-edge)" stroke-width="1.6"/>
+          <path id="cl-e5" d="M380 170 C 403 170 403 100 426 100" fill="none" stroke="url(#cl-edge)" stroke-width="1.6"/>
+          <path id="cl-e6" d="M380 170 C 403 170 403 240 426 240" fill="none" stroke="url(#cl-edge)" stroke-width="1.6"/>
+          <path id="cl-e7" d="M380 290 C 403 290 403 240 426 240" fill="none" stroke="url(#cl-edge)" stroke-width="1.6"/>
+          <!-- pulses -->
+          <g filter="url(#cl-glow)">
+            <circle r="3.4" fill="#22D3EE"><animateMotion dur="2.2s" repeatCount="indefinite" begin="0s"><mpath href="#cl-e1"/></animateMotion></circle>
+            <circle r="3.4" fill="#7DD3FC"><animateMotion dur="2.6s" repeatCount="indefinite" begin=".4s"><mpath href="#cl-e2"/></animateMotion></circle>
+            <circle r="3.4" fill="#22D3EE"><animateMotion dur="3s" repeatCount="indefinite" begin="1.1s"><mpath href="#cl-e3"/></animateMotion></circle>
+            <circle r="3.4" fill="#7DD3FC"><animateMotion dur="2.4s" repeatCount="indefinite" begin=".7s"><mpath href="#cl-e5"/></animateMotion></circle>
+            <circle r="3.4" fill="#22D3EE"><animateMotion dur="2.8s" repeatCount="indefinite" begin="1.5s"><mpath href="#cl-e6"/></animateMotion></circle>
+            <circle r="3.4" fill="#7DD3FC"><animateMotion dur="2.5s" repeatCount="indefinite" begin=".2s"><mpath href="#cl-e4"/></animateMotion></circle>
+          </g>
+          <!-- nodes: local coords inside each translate(); icon box 12..42 / 11..41, center (27,26) -->
+          <g transform="translate(14,144)">
+            <rect width="160" height="52" rx="13" fill="#131B33" stroke="rgba(255,255,255,.1)"/>
+            <rect x="12" y="11" width="30" height="30" rx="9" fill="#1E40AF"/>
+            <path d="M20 21h14v10a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 20 31z" fill="none" stroke="#9DC0FF" stroke-width="1.5" stroke-linejoin="round"/>
+            <path d="M20 21l7 6 7-6" fill="none" stroke="#9DC0FF" stroke-width="1.5" stroke-linejoin="round"/>
+            <text x="54" y="30" fill="#EAF0FF" font-family="Geist,sans-serif" font-size="13" font-weight="600">Intake</text>
+            <text x="54" y="44" fill="#7E8AAC" font-family="Geist Mono,monospace" font-size="9.5">email · forms</text>
+          </g>
+          <g transform="translate(220,24)">
+            <rect width="160" height="52" rx="13" fill="#131B33" stroke="rgba(255,255,255,.1)"/>
+            <rect x="12" y="11" width="30" height="30" rx="9" fill="#0E7490"/>
+            <path d="M27 16l8 3.5v5.5c0 4.5-4 6.5-8 8-4-1.5-8-3.5-8-8v-5.5z" fill="none" stroke="#7DE3F4" stroke-width="1.5" stroke-linejoin="round"/>
+            <text x="54" y="30" fill="#EAF0FF" font-family="Geist,sans-serif" font-size="13" font-weight="600">Validate</text>
+            <text x="54" y="44" fill="#7E8AAC" font-family="Geist Mono,monospace" font-size="9.5">rules engine</text>
+          </g>
+          <g transform="translate(220,144)">
+            <rect width="160" height="52" rx="13" fill="#131B33" stroke="rgba(34,211,238,.35)"/>
+            <rect x="12" y="11" width="30" height="30" rx="9" fill="#1E40AF"/>
+            <rect x="20" y="19" width="14" height="14" rx="3" fill="none" stroke="#9DC0FF" stroke-width="1.5"/>
+            <path d="M23 16v3M27 16v3M31 16v3M23 33v3M27 33v3M31 33v3M16 23h3M16 27h3M16 31h3M35 23h3M35 27h3M35 31h3" stroke="#9DC0FF" stroke-width="1.3" stroke-linecap="round"/>
+            <text x="54" y="30" fill="#EAF0FF" font-family="Geist,sans-serif" font-size="13" font-weight="600">Enrich</text>
+            <text x="54" y="44" fill="#6FE3F0" font-family="Geist Mono,monospace" font-size="9.5">AI model</text>
+          </g>
+          <g transform="translate(220,264)">
+            <rect width="160" height="52" rx="13" fill="#131B33" stroke="rgba(255,255,255,.1)"/>
+            <rect x="12" y="11" width="30" height="30" rx="9" fill="#B45309"/>
+            <path d="M27 17l9.5 17h-19z" fill="none" stroke="#FCD9A6" stroke-width="1.5" stroke-linejoin="round"/>
+            <path d="M27 24v5" stroke="#FCD9A6" stroke-width="1.8" stroke-linecap="round"/>
+            <circle cx="27" cy="32" r="1" fill="#FCD9A6"/>
+            <text x="54" y="30" fill="#EAF0FF" font-family="Geist,sans-serif" font-size="13" font-weight="600">Exception</text>
+            <text x="54" y="44" fill="#7E8AAC" font-family="Geist Mono,monospace" font-size="9.5">human review</text>
+          </g>
+          <g transform="translate(426,74)">
+            <rect width="160" height="52" rx="13" fill="#131B33" stroke="rgba(255,255,255,.1)"/>
+            <rect x="12" y="11" width="30" height="30" rx="9" fill="#15803D"/>
+            <path d="M20 26l4.5 4.5L34 21" fill="none" stroke="#A7F3C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <text x="54" y="30" fill="#EAF0FF" font-family="Geist,sans-serif" font-size="13" font-weight="600">Approve</text>
+            <text x="54" y="44" fill="#7E8AAC" font-family="Geist Mono,monospace" font-size="9.5">policy gate</text>
+          </g>
+          <g transform="translate(426,214)">
+            <rect width="160" height="52" rx="13" fill="#131B33" stroke="rgba(255,255,255,.1)"/>
+            <rect x="12" y="11" width="30" height="30" rx="9" fill="#1E40AF"/>
+            <rect x="20" y="19" width="14" height="6" rx="1.5" fill="none" stroke="#9DC0FF" stroke-width="1.4"/>
+            <rect x="20" y="28" width="14" height="6" rx="1.5" fill="none" stroke="#9DC0FF" stroke-width="1.4"/>
+            <circle cx="23.6" cy="22" r=".9" fill="#9DC0FF"/>
+            <circle cx="23.6" cy="31" r=".9" fill="#9DC0FF"/>
+            <text x="54" y="30" fill="#EAF0FF" font-family="Geist,sans-serif" font-size="13" font-weight="600">Sync</text>
+            <text x="54" y="44" fill="#7E8AAC" font-family="Geist Mono,monospace" font-size="9.5">ERP · CRM</text>
+          </g>
+        </svg>
+        <!-- footer stat strip -->
+        <div style="position:relative; display:flex; gap:10px; margin-top:6px;">
+          <div style="flex:1; background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.07); border-radius:11px; padding:11px 13px;">
+            <div style="font-family:'Geist Mono',monospace; font-size:10px; letter-spacing:.05em; color:#69769B; text-transform:uppercase;">Touchless rate</div>
+            <div style="font-size:19px; font-weight:600; color:#fff; margin-top:3px;">94.2%</div>
+          </div>
+          <div style="flex:1; background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.07); border-radius:11px; padding:11px 13px;">
+            <div style="font-family:'Geist Mono',monospace; font-size:10px; letter-spacing:.05em; color:#69769B; text-transform:uppercase;">Avg. latency</div>
+            <div style="font-size:19px; font-weight:600; color:#fff; margin-top:3px;">1.8<span style="font-size:12px; color:#9AA6C4;">s</span></div>
+          </div>
+          <div style="flex:1; background:rgba(34,211,238,.1); border:1px solid rgba(34,211,238,.22); border-radius:11px; padding:11px 13px;">
+            <div style="font-family:'Geist Mono',monospace; font-size:10px; letter-spacing:.05em; color:#7DE3F4; text-transform:uppercase;">Errors caught</div>
+            <div style="font-size:19px; font-weight:600; color:#fff; margin-top:3px;">1,204</div>
+          </div>
+        </div>
+      </div>
+      <!-- floating badge -->
+      <div style="position:absolute; left:-22px; bottom:48px; background:#fff; border-radius:14px; padding:12px 15px; box-shadow:0 18px 44px -10px rgba(17,22,31,.28); display:flex; align-items:center; gap:11px; animation:cl-float 6s ease-in-out infinite;">
+        <span style="position:relative; width:34px; height:34px; border-radius:10px; background:#ECFDF5; display:flex; align-items:center; justify-content:center;">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#15803D" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4 12 14.01l-3-3"/></svg>
+        </span>
+        <div><div style="font-size:13px; font-weight:600; color:#11161F;">Reconciled &amp; posted</div><div style="font-family:'Geist Mono',monospace; font-size:10.5px; color:#6A7180;">no human touch · 0 errors</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LOGO MARQUEE ============ -->
+<section style="padding:6px 0 44px; position:relative;">
+  <div style="max-width:1240px; margin:0 auto 22px; padding:0 28px; display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap;">
+    <p style="margin:0; font-family:'Geist Mono',monospace; font-size:12px; letter-spacing:.05em; text-transform:uppercase; color:#7A828F;">Trusted by teams across India</p>
+    <div style="display:inline-flex; align-items:center; gap:9px; padding:6px 12px; border:1px solid rgba(30,64,175,.18); border-radius:8px; background:#fff; font-size:12.5px; color:#41495A;">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="#F59E0B" stroke="none"><path d="m12 2 2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17l-6.2 3.3 1.6-6.8L2.2 8.9l6.9-.6z"/></svg>
+      Software · AI · Automation · Growth — <strong style="color:#11161F;">one team</strong>
+    </div>
+  </div>
+  <div data-marquee style="position:relative; overflow:hidden; -webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent); mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);">
+    <div style="display:flex; gap:56px; width:max-content; animation:cl-marquee 36s linear infinite; align-items:center; padding:6px 28px;" data-marquee-track>
+      <span style="font-size:21px; font-weight:700; letter-spacing:-.02em; color:#9298A4;">Sharda Industries</span>
+      <span style="font-size:21px; font-weight:600; letter-spacing:.02em; color:#9298A4; font-style:italic;">TransIndia</span>
+      <span style="font-size:21px; font-weight:800; letter-spacing:-.04em; color:#9298A4;">FINOVO</span>
+      <span style="font-size:20px; font-weight:500; color:#9298A4;">MediCare</span>
+      <span style="font-size:21px; font-weight:700; color:#9298A4;">Apex Motors</span>
+      <span style="font-size:20px; font-weight:600; letter-spacing:.08em; color:#9298A4;">BRIGHTLINE</span>
+      <span style="font-size:21px; font-weight:700; letter-spacing:-.02em; color:#9298A4;">Zenith Retail</span>
+      <span style="font-size:20px; font-weight:500; color:#9298A4;">Nova Tech</span>
+      <span style="font-size:21px; font-weight:800; letter-spacing:-.03em; color:#9298A4;">URBANFOODS</span>
+      <span style="font-size:20px; font-weight:600; color:#9298A4;">Kisan Agro</span>
+      <!-- duplicate for seamless loop -->
+      <span style="font-size:21px; font-weight:700; letter-spacing:-.02em; color:#9298A4;">Sharda Industries</span>
+      <span style="font-size:21px; font-weight:600; letter-spacing:.02em; color:#9298A4; font-style:italic;">TransIndia</span>
+      <span style="font-size:21px; font-weight:800; letter-spacing:-.04em; color:#9298A4;">FINOVO</span>
+      <span style="font-size:20px; font-weight:500; color:#9298A4;">MediCare</span>
+      <span style="font-size:21px; font-weight:700; color:#9298A4;">Apex Motors</span>
+      <span style="font-size:20px; font-weight:600; letter-spacing:.08em; color:#9298A4;">BRIGHTLINE</span>
+      <span style="font-size:21px; font-weight:700; letter-spacing:-.02em; color:#9298A4;">Zenith Retail</span>
+      <span style="font-size:20px; font-weight:500; color:#9298A4;">Nova Tech</span>
+      <span style="font-size:21px; font-weight:800; letter-spacing:-.03em; color:#9298A4;">URBANFOODS</span>
+      <span style="font-size:20px; font-weight:600; color:#9298A4;">Kisan Agro</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STAT BAND (dark) ============ -->
+<section style="position:relative; background:#0A0E1A; color:#fff; padding:84px 0; overflow:hidden;">
+  <div style="position:absolute; inset:0; background-image:radial-gradient(rgba(255,255,255,.05) 1px,transparent 1px); background-size:3px 3px; opacity:.5; pointer-events:none;"></div>
+  <div style="position:absolute; top:-1px; left:50%; transform:translateX(-50%); width:60%; height:1px; background:linear-gradient(90deg,transparent,rgba(34,211,238,.7),transparent);"></div>
+  <div style="position:absolute; width:520px; height:520px; left:-160px; top:-200px; background:radial-gradient(circle,rgba(30,64,175,.4),transparent 60%); filter:blur(40px); pointer-events:none;"></div>
+  <div style="max-width:1240px; margin:0 auto; padding:0 28px; position:relative;">
+    <div style="display:flex; align-items:flex-end; justify-content:space-between; gap:24px; flex-wrap:wrap; margin-bottom:46px;" data-reveal>
+      <h2 style="margin:0; font-size:clamp(28px,3.4vw,40px); line-height:1.05; letter-spacing:-.03em; font-weight:300; max-width:620px;">We don't just write code.<br><span style="font-weight:700;">We deliver outcomes.</span></h2>
+      <p style="margin:0; font-size:15px; color:#9AA6C4; max-width:300px;">Typical results from the software, automation, and growth work we ship for Indian businesses — measured against where you started.</p>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:0;" data-stat-grid>
+      <div data-reveal style="padding:8px 28px 8px 0; border-right:1px solid rgba(255,255,255,.1);">
+        <div style="font-size:clamp(40px,4.6vw,58px); font-weight:600; letter-spacing:-.03em; line-height:1; color:#fff;"><span data-counter="40" data-dec="0">40</span><span style="color:#22D3EE;">%</span></div>
+        <div style="margin-top:12px; font-size:14.5px; color:#AEB7CC; line-height:1.4;">less manual work after we automate it</div>
+      </div>
+      <div data-reveal data-reveal-delay="90" style="padding:8px 28px; border-right:1px solid rgba(255,255,255,.1);">
+        <div style="font-size:clamp(40px,4.6vw,58px); font-weight:600; letter-spacing:-.03em; line-height:1; color:#fff;"><span data-counter="3" data-dec="0">3</span><span style="color:#22D3EE;">×</span></div>
+        <div style="margin-top:12px; font-size:14.5px; color:#AEB7CC; line-height:1.4;">faster delivery than a typical in-house build</div>
+      </div>
+      <div data-reveal data-reveal-delay="180" style="padding:8px 28px; border-right:1px solid rgba(255,255,255,.1);">
+        <div style="font-size:clamp(40px,4.6vw,58px); font-weight:600; letter-spacing:-.03em; line-height:1; color:#fff;"><span style="color:#22D3EE;">&lt;</span><span data-counter="90" data-dec="0">90</span></div>
+        <div style="margin-top:12px; font-size:14.5px; color:#AEB7CC; line-height:1.4;">days to measurable ROI on most projects</div>
+      </div>
+      <div data-reveal data-reveal-delay="270" style="padding:8px 0 8px 28px;">
+        <div style="font-size:clamp(40px,4.6vw,58px); font-weight:600; letter-spacing:-.03em; line-height:1; color:#fff;"><span data-counter="100" data-dec="0">100</span><span style="color:#22D3EE;">%</span></div>
+        <div style="margin-top:12px; font-size:14.5px; color:#AEB7CC; line-height:1.4;">of the source code &amp; IP, owned by you</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICE PILLARS (bento) ============ -->
+<section id="services" style="padding:96px 0; position:relative;">
+  <div style="max-width:1240px; margin:0 auto; padding:0 28px;">
+    <div style="max-width:680px; margin-bottom:46px;" data-reveal>
+      <div style="font-family:'Geist Mono',monospace; font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:#1E40AF; margin-bottom:14px;">/ What we build</div>
+      <h2 style="margin:0; font-size:clamp(30px,3.8vw,46px); line-height:1.04; letter-spacing:-.035em; font-weight:300; color:#11161F;">Everything your business needs to ship, <span style="font-weight:700;">under one roof.</span></h2>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(12,1fr); grid-auto-rows:minmax(0,auto); gap:18px;" data-bento>
+      <!-- BIG feature: AI Automation -->
+      <article data-reveal style="grid-column:span 7; position:relative; overflow:hidden; border-radius:22px; background:linear-gradient(155deg,#11193A,#0A0E1A); color:#fff; padding:34px; min-height:340px; transition:transform .3s, box-shadow .3s; box-shadow:0 1px 0 rgba(255,255,255,.04) inset;" style-hover="transform:translateY(-4px); box-shadow:0 30px 60px -24px rgba(11,16,32,.6);">
+        <div style="position:absolute; right:-40px; top:-40px; width:260px; height:260px; background:radial-gradient(circle,rgba(37,99,235,.45),transparent 62%); filter:blur(20px); pointer-events:none;"></div>
+        <div style="position:relative; display:flex; align-items:center; gap:12px; margin-bottom:20px;">
+          <span style="width:42px; height:42px; border-radius:12px; background:rgba(37,99,235,.22); border:1px solid rgba(99,141,255,.35); display:flex; align-items:center; justify-content:center;">
+            <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#9DC0FF" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="7" width="10" height="10" rx="2"/><path d="M9 3v3M15 3v3M9 18v3M15 18v3M3 9h3M3 15h3M18 9h3M18 15h3"/></svg>
+          </span>
+          <span style="font-family:'Geist Mono',monospace; font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:#7DE3F4;">Service 01</span>
+        </div>
+        <h3 style="position:relative; margin:0; font-size:27px; font-weight:600; letter-spacing:-.02em;">AI &amp; AI Agents</h3>
+        <p style="position:relative; margin:12px 0 0; font-size:16px; line-height:1.55; color:#AEB7CC; max-width:430px;">Custom AI agents, chatbots, and LLM-powered apps that read documents, answer customers, and handle repetitive decisions — with a human in control where it matters.</p>
+        <div style="position:relative; display:flex; flex-wrap:wrap; gap:8px; margin-top:24px;">
+          <span style="font-size:12.5px; color:#CBD3E6; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.1); padding:6px 11px; border-radius:8px;">AI agents &amp; copilots</span>
+          <span style="font-size:12.5px; color:#CBD3E6; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.1); padding:6px 11px; border-radius:8px;">Chatbots &amp; support bots</span>
+          <span style="font-size:12.5px; color:#CBD3E6; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.1); padding:6px 11px; border-radius:8px;">Document &amp; data extraction</span>
+          <span style="font-size:12.5px; color:#CBD3E6; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.1); padding:6px 11px; border-radius:8px;">LLM app development</span>
+        </div>
+        <div style="position:relative; display:flex; align-items:center; gap:18px; margin-top:26px; padding-top:20px; border-top:1px solid rgba(255,255,255,.1);">
+          <div><div style="font-size:22px; font-weight:600; color:#22D3EE;">24×7</div><div style="font-size:12px; color:#8C97B3;">always-on agents</div></div>
+          <div><div style="font-size:22px; font-weight:600; color:#fff;">2–6 wks</div><div style="font-size:12px; color:#8C97B3;">to first version</div></div>
+        </div>
+      </article>
+      <!-- Workflow Automation -->
+      <article data-reveal data-reveal-delay="90" style="grid-column:span 5; position:relative; overflow:hidden; border-radius:22px; background:#fff; border:1px solid rgba(17,22,31,.08); padding:30px; min-height:340px; transition:transform .3s, box-shadow .3s, border-color .3s;" style-hover="transform:translateY(-4px); border-color:rgba(30,64,175,.35); box-shadow:0 24px 50px -22px rgba(17,22,31,.2);">
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:20px;">
+          <span style="width:42px; height:42px; border-radius:12px; background:#EEF2FF; display:flex; align-items:center; justify-content:center;">
+            <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#1E40AF" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="6" height="6" rx="1.5"/><rect x="15" y="15" width="6" height="6" rx="1.5"/><path d="M9 6h6a3 3 0 0 1 3 3v6"/></svg>
+          </span>
+          <span style="font-family:'Geist Mono',monospace; font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:#1E40AF;">Service 02</span>
+        </div>
+        <h3 style="margin:0; font-size:24px; font-weight:600; letter-spacing:-.02em; color:#11161F;">Custom Software Development</h3>
+        <p style="margin:12px 0 0; font-size:15.5px; line-height:1.55; color:#48505F;">Web apps, mobile apps, internal tools, and full SaaS products — designed, built, and delivered to your exact needs, on time and fully owned by you.</p>
+        <div style="margin-top:22px; display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
+          <span style="font-size:13px; font-weight:600; color:#11161F;">Built to fit</span>
+          <span style="width:4px; height:4px; border-radius:50%; background:#C7CAD1;"></span>
+          <span style="font-size:13px; color:#6A7180;">Web · Mobile · SaaS · Internal tools · APIs</span>
+        </div>
+      </article>
+      <!-- Process Automation -->
+      <article data-reveal data-reveal-delay="60" style="grid-column:span 5; position:relative; overflow:hidden; border-radius:22px; background:#fff; border:1px solid rgba(17,22,31,.08); padding:30px; transition:transform .3s, box-shadow .3s, border-color .3s;" style-hover="transform:translateY(-4px); border-color:rgba(30,64,175,.35); box-shadow:0 24px 50px -22px rgba(17,22,31,.2);">
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:18px;">
+          <span style="width:42px; height:42px; border-radius:12px; background:#ECFEFF; display:flex; align-items:center; justify-content:center;">
+            <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#0E7490" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l2.5 2.5M16.5 16.5 19 19M19 5l-2.5 2.5M7.5 16.5 5 19"/><circle cx="12" cy="12" r="3.2"/></svg>
+          </span>
+          <span style="font-family:'Geist Mono',monospace; font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:#0E7490;">Service 03</span>
+        </div>
+        <h3 style="margin:0; font-size:24px; font-weight:600; letter-spacing:-.02em; color:#11161F;">Process &amp; Workflow Automation</h3>
+        <p style="margin:12px 0 0; font-size:15.5px; line-height:1.55; color:#48505F;">We map your manual, repetitive work and automate it end to end — connecting your tools so data flows on its own and your team stops re-keying it.</p>
+      </article>
+      <!-- supporting tile: integrations -->
+      <article data-reveal data-reveal-delay="120" style="grid-column:span 4; border-radius:22px; background:#11161F; color:#fff; padding:28px; position:relative; overflow:hidden;">
+        <div style="font-size:36px; font-weight:600; letter-spacing:-.03em;">Data &amp; BI</div>
+        <div style="font-size:14.5px; color:#AEB7CC; margin-top:6px; line-height:1.4;">Dashboards, reports &amp; integrations — one live view across ERP, CRM, Tally &amp; sheets.</div>
+      </article>
+      <!-- supporting tile: HITL -->
+      <article data-reveal data-reveal-delay="160" style="grid-column:span 3; border-radius:22px; background:#1E40AF; color:#fff; padding:28px; position:relative; overflow:hidden;">
+        <div style="position:absolute; right:-30px; bottom:-30px; width:140px; height:140px; background:radial-gradient(circle,rgba(34,211,238,.4),transparent 65%); filter:blur(12px);"></div>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="position:relative;"><path d="M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z"/><path d="M2 21a7 7 0 0 1 14 0"/><path d="m17 11 2 2 4-4"/></svg>
+        <div style="position:relative; font-size:16px; font-weight:600; margin-top:18px;">Marketing &amp; Growth</div>
+        <div style="position:relative; font-size:13.5px; color:#C7D3FF; margin-top:5px; line-height:1.4;">Google Ads, Meta Ads, in-app traffic, SEO &amp; analytics — real customers, not just clicks.</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BY DEPARTMENT (tabs) ============ -->
+<section id="departments" style="padding:14px 0 96px; position:relative;">
+  <div style="max-width:1240px; margin:0 auto; padding:0 28px;">
+    <div style="display:flex; align-items:flex-end; justify-content:space-between; gap:24px; flex-wrap:wrap; margin-bottom:34px;" data-reveal>
+      <div style="max-width:560px;">
+        <div style="font-family:'Geist Mono',monospace; font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:#1E40AF; margin-bottom:14px;">/ By department</div>
+        <h2 style="margin:0; font-size:clamp(30px,3.8vw,46px); line-height:1.04; letter-spacing:-.035em; font-weight:300; color:#11161F;">Pick a team. <span style="font-weight:700;">See what we'd build first.</span></h2>
+      </div>
+      <p style="margin:0; font-size:15px; color:#6A7180; max-width:280px;">Every engagement starts with the workflow that's bleeding the most hours. Here's where each function usually begins.</p>
+    </div>
+    <!-- tab bar -->
+    <div data-tabbar style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:26px;">
+      <button data-tab="hr" style="display:inline-flex; align-items:center; gap:8px; padding:10px 16px; border-radius:11px; border:1px solid rgba(17,22,31,.1); background:#fff; color:#41495A; font-size:14.5px; font-weight:600; cursor:pointer; font-family:inherit; transition:all .2s;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 6a3 3 0 0 1 0 6M21.5 20a5 5 0 0 0-4-4.9"/></svg>HR</button>
+      <button data-tab="finance" style="display:inline-flex; align-items:center; gap:8px; padding:10px 16px; border-radius:11px; border:1px solid rgba(17,22,31,.1); background:#fff; color:#41495A; font-size:14.5px; font-weight:600; cursor:pointer; font-family:inherit; transition:all .2s;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="13" rx="2.5"/><circle cx="12" cy="12.5" r="2.6"/><path d="M6 6V4.5M18 19v1.5"/></svg>Finance</button>
+      <button data-tab="ops" style="display:inline-flex; align-items:center; gap:8px; padding:10px 16px; border-radius:11px; border:1px solid rgba(17,22,31,.1); background:#fff; color:#41495A; font-size:14.5px; font-weight:600; cursor:pointer; font-family:inherit; transition:all .2s;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h13v10H3zM16 10h3l2 3v4h-5"/><circle cx="6.5" cy="18" r="1.8"/><circle cx="17.5" cy="18" r="1.8"/></svg>Operations</button>
+      <button data-tab="sales" style="display:inline-flex; align-items:center; gap:8px; padding:10px 16px; border-radius:11px; border:1px solid rgba(17,22,31,.1); background:#fff; color:#41495A; font-size:14.5px; font-weight:600; cursor:pointer; font-family:inherit; transition:all .2s;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-5 4 4 8-8M16 4h5v5"/></svg>Sales</button>
+      <button data-tab="support" style="display:inline-flex; align-items:center; gap:8px; padding:10px 16px; border-radius:11px; border:1px solid rgba(17,22,31,.1); background:#fff; color:#41495A; font-size:14.5px; font-weight:600; cursor:pointer; font-family:inherit; transition:all .2s;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13a8 8 0 0 1 16 0M4 13v3a2 2 0 0 0 2 2h1v-5H5a1 1 0 0 0-1 0M20 13v3a2 2 0 0 1-2 2h-1v-5h2a1 1 0 0 1 1 0"/></svg>Support</button>
+      <button data-tab="it" style="display:inline-flex; align-items:center; gap:8px; padding:10px 16px; border-radius:11px; border:1px solid rgba(17,22,31,.1); background:#fff; color:#41495A; font-size:14.5px; font-weight:600; cursor:pointer; font-family:inherit; transition:all .2s;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="6" rx="1.5"/><rect x="2" y="11" width="20" height="6" rx="1.5"/><path d="M6 6h.01M6 14h.01"/></svg>IT</button>
+    </div>
+    <!-- panels -->
+    <div data-panel-wrap style="border:1px solid rgba(17,22,31,.08); border-radius:22px; background:#fff; overflow:hidden; box-shadow:0 18px 50px -30px rgba(17,22,31,.25);">
+      <!-- HR -->
+      <div data-panel="hr" style="display:grid; grid-template-columns:1.15fr .85fr; min-height:332px;">
+        <div style="padding:38px 40px;">
+          <div style="font-family:'Geist Mono',monospace; font-size:11.5px; letter-spacing:.06em; text-transform:uppercase; color:#1E40AF;">Human Resources</div>
+          <h3 style="margin:12px 0 0; font-size:25px; font-weight:600; letter-spacing:-.02em; color:#11161F;">Onboard people, not paperwork.</h3>
+          <p style="margin:12px 0 0; font-size:15px; line-height:1.55; color:#48505F; max-width:440px;">New hire provisioning, PTO &amp; payroll prep, and first-pass candidate screening — orchestrated end to end across your HRIS and IT stack.</p>
+          <ul style="list-style:none; padding:0; margin:22px 0 0; display:grid; gap:11px;">
+            <li style="display:flex; gap:11px; align-items:flex-start; font-size:14.5px; color:#2B3242;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#15803D" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto; margin-top:1px;"><path d="M20 6 9 17l-5-5"/></svg>Auto-provision accounts, devices &amp; access on day one</li>
+            <li style="display:flex; gap:11px; align-items:flex-start; font-size:14.5px; color:#2B3242;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#15803D" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto; margin-top:1px;"><path d="M20 6 9 17l-5-5"/></svg>Screen &amp; rank candidates against the role rubric</li>
+            <li style="display:flex; gap:11px; align-items:flex-start; font-size:14.5px; color:#2B3242;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#15803D" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto; margin-top:1px;"><path d="M20 6 9 17l-5-5"/></svg>Reconcile timesheets &amp; prep payroll, flag exceptions</li>
+          </ul>
+        </div>
+        <div style="background:linear-gradient(160deg,#F3F5FF,#EAF0FF); border-left:1px solid rgba(17,22,31,.06); padding:34px; display:flex; flex-direction:column; justify-content:center;">
+          <div style="font-family:'Geist Mono',monospace; font-size:11px; letter-spacing:.05em; text-transform:uppercase; color:#1E40AF;">Result</div>
+          <div style="font-size:48px; font-weight:700; letter-spacing:-.03em; color:#11161F; margin-top:8px; line-height:1;">68%</div>
+          <div style="font-size:14.5px; color:#48505F; margin-top:6px;">faster onboarding, hire to productive</div>
+          <div style="margin-top:22px; display:flex; gap:7px; align-items:flex-end; height:64px;">
+            <span style="flex:1; background:#C9D5F7; border-radius:5px 5px 0 0; height:88%;"></span><span style="flex:1; background:#C9D5F7; border-radius:5px 5px 0 0; height:70%;"></span><span style="flex:1; background:#1E40AF; border-radius:5px 5px 0 0; height:30%;"></span><span style="flex:1; background:#1E40AF; border-radius:5px 5px 0 0; height:24%;"></span>
+          </div>
+          <div style="font-family:'Geist Mono',monospace; font-size:10.5px; color:#7A828F; margin-top:8px;">days-to-ramp · before → after</div>
+        </div>
+      </div>
+      <!-- FINANCE -->
+      <div data-panel="finance" style="display:none; grid-template-columns:1.15fr .85fr; min-height:332px;">
+        <div style="padding:38px 40px;">
+          <div style="font-family:'Geist Mono',monospace; font-size:11.5px; letter-spacing:.06em; text-transform:uppercase; color:#1E40AF;">Finance</div>
+          <h3 style="margin:12px 0 0; font-size:25px; font-weight:600; letter-spacing:-.02em; color:#11161F;">Close the books in days, not weeks.</h3>
+          <p style="margin:12px 0 0; font-size:15px; line-height:1.55; color:#48505F; max-width:440px;">AI invoice capture with 3-way match, automated expense audit, and an orchestrated month-end close that chases its own approvals.</p>
+          <ul style="list-style:none; padding:0; margin:22px 0 0; display:grid; gap:11px;">
+            <li style="display:flex; gap:11px; align-items:flex-start; font-size:14.5px; color:#2B3242;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#15803D" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto; margin-top:1px;"><path d="M20 6 9 17l-5-5"/></svg>Capture &amp; code invoices, match to PO &amp; receipt</li>
+            <li style="display:flex; gap:11px; align-items:flex-start; font-size:14.5px; color:#2B3242;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#15803D" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto; margin-top:1px;"><path d="M20 6 9 17l-5-5"/></svg>Audit expenses against policy, auto-flag outliers</li>
+            <li style="display:flex; gap:11px; align-items:flex-start; font-size:14.5px; color:#2B3242;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#15803D" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto; margin-top:1px;"><path d="M20 6 9 17l-5-5"/></svg>Orchestrate close tasks, reconciliations &amp; sign-offs</li>
+          </ul>
+        </div>
+        <div style="background:linear-gradient(160deg,#F3F5FF,#EAF0FF); border-left:1px solid rgba(17,22,31,.06); padding:34px; display:flex; flex-direction:column; justify-content:center;">
+          <div style="font-family:'Geist Mono',monospace; font-size:11px; letter-spacing:.05em; text-transform:uppercase; color:#1E40AF;">Result</div>
+          <div style="font-size:48px; font-weight:700; letter-spacing:-.03em; color:#11161F; margin-top:8px; line-height:1;">9 → 3</div>
+          <div style="font-size:14.5px; color:#48505F; margin-top:6px;">days to close month-end</div>
+          <div style="margin-top:22px; display:flex; gap:7px; align-items:flex-end; height:64px;">
+            <span style="flex:1; background:#C9D5F7; border-radius:5px 5px 0 0; height:100%;"></span><span style="flex:1; background:#C9D5F7; border-radius:5px 5px 0 0; height:82%;"></span><span style="flex:1; background:#1E40AF; border-radius:5px 5px 0 0; height:40%;"></span><span style="flex:1; background:#1E40AF; border-radius:5px 5px 0 0; height:33%;"></span>
+          </div>
+          <div style="font-family:'Geist Mono',monospace; font-size:10.5px; color:#7A828F; margin-top:8px;">close-days · q1 → q4</div>
+        </div>
+      </div>
+      <!-- OPS -->
+      <div data-panel="ops" style="display:none; grid-template-columns:1.15fr .85fr; min-height:332px;">
+        <div style="padding:38px 40px;">
+          <div style="font-family:'Geist Mono',monospace; font-size:11.5px; letter-spacing:.06em; text-transform:uppercase; color:#1E40AF;">Operations</div>
+          <h3 style="margin:12px 0 0; font-size:25px; font-weight:600; letter-spacing:-.02em; color:#11161F;">Order-to-cash, without the chase.</h3>
+          <p style="margin:12px 0 0; font-size:15px; line-height:1.55; color:#48505F; max-width:440px;">Automated order processing, inventory reconciliation across systems, and vendor onboarding that validates itself before anything hits your ERP.</p>
+          <ul style="list-style:none; padding:0; margin:22px 0 0; display:grid; gap:11px;">
+            <li style="display:flex; gap:11px; align-items:flex-start; font-size:14.5px; color:#2B3242;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#15803D" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto; margin-top:1px;"><path d="M20 6 9 17l-5-5"/></svg>Process orders &amp; sync fulfillment in real time</li>
+            <li style="display:flex; gap:11px; align-items:flex-start; font-size:14.5px; color:#2B3242;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#15803D" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto; margin-top:1px;"><path d="M20 6 9 17l-5-5"/></svg>Reconcile inventory across WMS, ERP &amp; storefront</li>
+            <li style="display:flex; gap:11px; align-items:flex-start; font-size:14.5px; color:#2B3242;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#15803D" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto; margin-top:1px;"><path d="M20 6 9 17l-5-5"/></svg>Validate &amp; onboard vendors with compliance checks</li>
+          </ul>
+        </div>
+        <div style="background:linear-gradient(160deg,#F3F5FF,#EAF0FF); border-left:1px solid rgba(17,22,31,.06); padding:34px; display:flex; flex-direction:column; justify-content:center;">
+          <div style="font-family:'Geist Mono',monospace; font-size:11px; letter-spacing:.05em; text-transform:uppercase; color:#1E40AF;">Result</div>
+          <div style="font-size:48px; font-weight:700; letter-spacing:-.03em; color:#11161F; margin-top:8px; line-height:1;">91%</div>
+          <div style="font-size:14.5px; color:#48505F; margin-top:6px;">fewer order &amp; fulfillment errors</div>
+          <div style="margin-top:22px; display:flex; gap:7px; align-items:flex-end; height:64px;">
+            <span style="flex:1; background:#C9D5F7; border-radius:5px 5px 0 0; height:95%;"></span><span style="flex:1; background:#C9D5F7; border-radius:5px 5px 0 0; height:64%;"></span><span style="flex:1; background:#C9D5F7; border-radius:5px 5px 0 0; height:44%;"></span><span style="flex:1; background:#1E40AF; border-radius:5px 5px 0 0; height:12%;"></span>
+          </div>
+          <div style="font-family:'Geist Mono',monospace; font-size:10.5px; color:#7A828F; margin-top:8px;">error-rate · monthly trend</div>
+        </div>
+      </div>
+      <!-- SALES -->
+      <div data-panel="sales" style="display:none; grid-template-columns:1.15fr .85fr; min-height:332px;">
+        <div style="padding:38px 40px;">
+          <div style="font-family:'Geist Mono',monospace; font-size:11.5px; letter-spacing:.06em; text-transform:uppercase; color:#1E40AF;">Sales</div>
+          <h3 style="margin:12px 0 0; font-size:25px; font-weight:600; letter-spacing:-.02em; color:#11161F;">More selling, less CRM admin.</h3>
+          <p style="margin:12px 0 0; font-size:15px; line-height:1.55; color:#48505F; max-width:440px;">Instant lead routing &amp; enrichment, automated quote generation, and a CRM that keeps itself clean — so reps spend their hours in front of buyers.</p>
+          <ul style="list-style:none; padding:0; margin:22px 0 0; display:grid; gap:11px;">
+            <li style="display:flex; gap:11px; align-items:flex-start; font-size:14.5px; color:#2B3242;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#15803D" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto; margin-top:1px;"><path d="M20 6 9 17l-5-5"/></svg>Route &amp; enrich inbound leads in seconds</li>
+            <li style="display:flex; gap:11px; align-items:flex-start; font-size:14.5px; color:#2B3242;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#15803D" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto; margin-top:1px;"><path d="M20 6 9 17l-5-5"/></svg>Generate quotes &amp; proposals from CPQ rules</li>
+            <li style="display:flex; gap:11px; align-items:flex-start; font-size:14.5px; color:#2B3242;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#15803D" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto; margin-top:1px;"><path d="M20 6 9 17l-5-5"/></svg>Auto-log activity &amp; maintain CRM hygiene</li>
+          </ul>
+        </div>
+        <div style="background:linear-gradient(160deg,#F3F5FF,#EAF0FF); border-left:1px solid rgba(17,22,31,.06); padding:34px; display:flex; flex-direction:column; justify-content:center;">
+          <div style="font-family:'Geist Mono',monospace; font-size:11px; letter-spacing:.05em; text-transform:uppercase; color:#1E40AF;">Result</div>
+          <div style="font-size:48px; font-weight:700; letter-spacing:-.03em; color:#11161F; margin-top:8px; line-height:1;">4h → 11m</div>
+          <div style="font-size:14.5px; color:#48505F; margin-top:6px;">average quote turnaround</div>
+          <div style="margin-top:22px; display:flex; gap:7px; align-items:flex-end; height:64px;">
+            <span style="flex:1; background:#C9D5F7; border-radius:5px 5px 0 0; height:100%;"></span><span style="flex:1; background:#C9D5F7; border-radius:5px 5px 0 0; height:60%;"></span><span style="flex:1; background:#1E40AF; border-radius:5px 5px 0 0; height:18%;"></span><span style="flex:1; background:#1E40AF; border-radius:5px 5px 0 0; height:7%;"></span>
+          </div>
+          <div style="font-family:'Geist Mono',monospace; font-size:10.5px; color:#7A828F; margin-top:8px;">turnaround · before → after</div>
+        </div>
+      </div>
+      <!-- SUPPORT -->
+      <div data-panel="support" style="display:none; grid-template-columns:1.15fr .85fr; min-height:332px;">
+        <div style="padding:38px 40px;">
+          <div style="font-family:'Geist Mono',monospace; font-size:11.5px; letter-spacing:.06em; text-transform:uppercase; color:#1E40AF;">Customer Support</div>
+          <h3 style="margin:12px 0 0; font-size:25px; font-weight:600; letter-spacing:-.02em; color:#11161F;">Triage, resolve, and learn — automatically.</h3>
+          <p style="margin:12px 0 0; font-size:15px; line-height:1.55; color:#48505F; max-width:440px;">AI ticket triage, auto-resolution for repeat issues, and post-call QA &amp; summaries that feed straight back into your knowledge base.</p>
+          <ul style="list-style:none; padding:0; margin:22px 0 0; display:grid; gap:11px;">
+            <li style="display:flex; gap:11px; align-items:flex-start; font-size:14.5px; color:#2B3242;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#15803D" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto; margin-top:1px;"><path d="M20 6 9 17l-5-5"/></svg>Classify, prioritize &amp; route every ticket</li>
+            <li style="display:flex; gap:11px; align-items:flex-start; font-size:14.5px; color:#2B3242;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#15803D" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto; margin-top:1px;"><path d="M20 6 9 17l-5-5"/></svg>Auto-resolve common requests with guardrails</li>
+            <li style="display:flex; gap:11px; align-items:flex-start; font-size:14.5px; color:#2B3242;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#15803D" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto; margin-top:1px;"><path d="M20 6 9 17l-5-5"/></svg>Summarize &amp; QA interactions for coaching</li>
+          </ul>
+        </div>
+        <div style="background:linear-gradient(160deg,#F3F5FF,#EAF0FF); border-left:1px solid rgba(17,22,31,.06); padding:34px; display:flex; flex-direction:column; justify-content:center;">
+          <div style="font-family:'Geist Mono',monospace; font-size:11px; letter-spacing:.05em; text-transform:uppercase; color:#1E40AF;">Result</div>
+          <div style="font-size:48px; font-weight:700; letter-spacing:-.03em; color:#11161F; margin-top:8px; line-height:1;">38%</div>
+          <div style="font-size:14.5px; color:#48505F; margin-top:6px;">faster first-response time</div>
+          <div style="margin-top:22px; display:flex; gap:7px; align-items:flex-end; height:64px;">
+            <span style="flex:1; background:#C9D5F7; border-radius:5px 5px 0 0; height:100%;"></span><span style="flex:1; background:#C9D5F7; border-radius:5px 5px 0 0; height:84%;"></span><span style="flex:1; background:#1E40AF; border-radius:5px 5px 0 0; height:62%;"></span><span style="flex:1; background:#1E40AF; border-radius:5px 5px 0 0; height:55%;"></span>
+          </div>
+          <div style="font-family:'Geist Mono',monospace; font-size:10.5px; color:#7A828F; margin-top:8px;">FRT minutes · trend</div>
+        </div>
+      </div>
+      <!-- IT -->
+      <div data-panel="it" style="display:none; grid-template-columns:1.15fr .85fr; min-height:332px;">
+        <div style="padding:38px 40px;">
+          <div style="font-family:'Geist Mono',monospace; font-size:11.5px; letter-spacing:.06em; text-transform:uppercase; color:#1E40AF;">IT &amp; InfoSec</div>
+          <h3 style="margin:12px 0 0; font-size:25px; font-weight:600; letter-spacing:-.02em; color:#11161F;">Provisioning, tickets &amp; change — on rails.</h3>
+          <p style="margin:12px 0 0; font-size:15px; line-height:1.55; color:#48505F; max-width:440px;">Access provisioning with policy enforcement, automated service-desk resolution, and change-management workflows with a full audit trail.</p>
+          <ul style="list-style:none; padding:0; margin:22px 0 0; display:grid; gap:11px;">
+            <li style="display:flex; gap:11px; align-items:flex-start; font-size:14.5px; color:#2B3242;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#15803D" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto; margin-top:1px;"><path d="M20 6 9 17l-5-5"/></svg>Grant &amp; revoke access by policy, with approvals</li>
+            <li style="display:flex; gap:11px; align-items:flex-start; font-size:14.5px; color:#2B3242;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#15803D" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto; margin-top:1px;"><path d="M20 6 9 17l-5-5"/></svg>Auto-resolve L1 service-desk requests</li>
+            <li style="display:flex; gap:11px; align-items:flex-start; font-size:14.5px; color:#2B3242;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#15803D" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto; margin-top:1px;"><path d="M20 6 9 17l-5-5"/></svg>Run change workflows with logged sign-offs</li>
+          </ul>
+        </div>
+        <div style="background:linear-gradient(160deg,#F3F5FF,#EAF0FF); border-left:1px solid rgba(17,22,31,.06); padding:34px; display:flex; flex-direction:column; justify-content:center;">
+          <div style="font-family:'Geist Mono',monospace; font-size:11px; letter-spacing:.05em; text-transform:uppercase; color:#1E40AF;">Result</div>
+          <div style="font-size:48px; font-weight:700; letter-spacing:-.03em; color:#11161F; margin-top:8px; line-height:1;">2,400</div>
+          <div style="font-size:14.5px; color:#48505F; margin-top:6px;">IT hours reclaimed per year</div>
+          <div style="margin-top:22px; display:flex; gap:7px; align-items:flex-end; height:64px;">
+            <span style="flex:1; background:#C9D5F7; border-radius:5px 5px 0 0; height:34%;"></span><span style="flex:1; background:#1E40AF; border-radius:5px 5px 0 0; height:58%;"></span><span style="flex:1; background:#1E40AF; border-radius:5px 5px 0 0; height:82%;"></span><span style="flex:1; background:#1E40AF; border-radius:5px 5px 0 0; height:100%;"></span>
+          </div>
+          <div style="font-family:'Geist Mono',monospace; font-size:10.5px; color:#7A828F; margin-top:8px;">hours saved · cumulative</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW IT WORKS (cobalt band) ============ -->
+<section id="how" style="position:relative; background:linear-gradient(165deg,#1E40AF 0%,#1B348C 55%,#152C75 100%); color:#fff; padding:92px 0; overflow:hidden;">
+  <div style="position:absolute; inset:0; background-image:radial-gradient(rgba(255,255,255,.06) 1px,transparent 1px); background-size:3px 3px; opacity:.6; pointer-events:none;"></div>
+  <div style="position:absolute; right:-120px; top:-120px; width:420px; height:420px; background:radial-gradient(circle,rgba(34,211,238,.3),transparent 62%); filter:blur(30px); pointer-events:none;"></div>
+  <div style="max-width:1240px; margin:0 auto; padding:0 28px; position:relative;">
+    <div style="display:flex; align-items:flex-end; justify-content:space-between; gap:24px; flex-wrap:wrap; margin-bottom:50px;" data-reveal>
+      <div style="max-width:560px;">
+        <div style="font-family:'Geist Mono',monospace; font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:#A9C2FF; margin-bottom:14px;">/ How it works</div>
+        <h2 style="margin:0; font-size:clamp(30px,3.8vw,46px); line-height:1.04; letter-spacing:-.035em; font-weight:300;">From idea to live in <span style="font-weight:700;">four steps.</span></h2>
+      </div>
+      <p style="margin:0; font-size:15px; color:#BFCBF0; max-width:300px;">A delivery model built for Indian businesses — clear scope, a fixed timeline, and working software every week.</p>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:0; position:relative;" data-steps>
+      <!-- connecting line -->
+      <div data-step-line style="position:absolute; top:30px; left:6%; width:88%; height:2px; background:rgba(255,255,255,.18); transform-origin:left; transform:scaleX(0); transition:transform 1.1s cubic-bezier(.2,.7,.2,1);"></div>
+      <div data-reveal style="position:relative; padding-right:26px;">
+        <div style="position:relative; width:60px; height:60px; border-radius:16px; background:#0A0E1A; border:1px solid rgba(255,255,255,.16); display:flex; align-items:center; justify-content:center; font-family:'Geist Mono',monospace; font-size:18px; font-weight:600; color:#22D3EE; z-index:2;">01</div>
+        <h3 style="margin:22px 0 0; font-size:20px; font-weight:600; letter-spacing:-.01em;">Discover</h3>
+        <p style="margin:10px 0 0; font-size:14.5px; line-height:1.55; color:#C3CEF0;">We learn your business and goals, scope the work, and give you a clear plan, timeline, and fixed quote <em>before</em> we build anything.</p>
+      </div>
+      <div data-reveal data-reveal-delay="120" style="position:relative; padding:0 26px;">
+        <div style="position:relative; width:60px; height:60px; border-radius:16px; background:#0A0E1A; border:1px solid rgba(255,255,255,.16); display:flex; align-items:center; justify-content:center; font-family:'Geist Mono',monospace; font-size:18px; font-weight:600; color:#22D3EE; z-index:2;">02</div>
+        <h3 style="margin:22px 0 0; font-size:20px; font-weight:600; letter-spacing:-.01em;">Build</h3>
+        <p style="margin:10px 0 0; font-size:14.5px; line-height:1.55; color:#C3CEF0;">We design and build in short, reviewable sprints — you see working software every week, not just slides.</p>
+      </div>
+      <div data-reveal data-reveal-delay="240" style="position:relative; padding:0 26px;">
+        <div style="position:relative; width:60px; height:60px; border-radius:16px; background:#0A0E1A; border:1px solid rgba(255,255,255,.16); display:flex; align-items:center; justify-content:center; font-family:'Geist Mono',monospace; font-size:18px; font-weight:600; color:#22D3EE; z-index:2;">03</div>
+        <h3 style="margin:22px 0 0; font-size:20px; font-weight:600; letter-spacing:-.01em;">Launch</h3>
+        <p style="margin:10px 0 0; font-size:14.5px; line-height:1.55; color:#C3CEF0;">We ship to production, connect it to your existing tools, and train your team — delivered on the date we promised.</p>
+      </div>
+      <div data-reveal data-reveal-delay="360" style="position:relative; padding-left:26px;">
+        <div style="position:relative; width:60px; height:60px; border-radius:16px; background:#22D3EE; display:flex; align-items:center; justify-content:center; font-family:'Geist Mono',monospace; font-size:18px; font-weight:600; color:#0A2540; z-index:2; box-shadow:0 0 24px rgba(34,211,238,.5);">04</div>
+        <h3 style="margin:22px 0 0; font-size:20px; font-weight:600; letter-spacing:-.01em;">Support</h3>
+        <p style="margin:10px 0 0; font-size:14.5px; line-height:1.55; color:#C3CEF0;">We monitor, fix, and keep adding features as your business grows. We stay on call — not gone after handover.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ OUTCOMES + CASE STUDY ============ -->
+<section id="cases" style="padding:96px 0;">
+  <div style="max-width:1240px; margin:0 auto; padding:0 28px;">
+    <div style="max-width:680px; margin-bottom:44px;" data-reveal>
+      <div style="font-family:'Geist Mono',monospace; font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:#1E40AF; margin-bottom:14px;">/ Proof</div>
+      <h2 style="margin:0; font-size:clamp(30px,3.8vw,46px); line-height:1.04; letter-spacing:-.035em; font-weight:300; color:#11161F;">The outcomes that show up <span style="font-weight:700;">on your bottom line.</span></h2>
+    </div>
+    <!-- outcomes bento -->
+    <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:18px; margin-bottom:18px;" data-outcomes>
+      <div data-reveal style="border-radius:18px; background:#fff; border:1px solid rgba(17,22,31,.08); padding:24px;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1E40AF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        <div style="font-size:34px; font-weight:700; letter-spacing:-.03em; color:#11161F; margin-top:16px;">−40%</div>
+        <div style="font-size:14px; color:#6A7180; margin-top:4px;">cost cut on automated tasks</div>
+      </div>
+      <div data-reveal data-reveal-delay="80" style="border-radius:18px; background:#0A0E1A; color:#fff; padding:24px; position:relative; overflow:hidden;">
+        <div style="position:absolute; inset:0; background-image:radial-gradient(rgba(255,255,255,.06) 1px,transparent 1px); background-size:3px 3px; opacity:.5;"></div>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#22D3EE" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="position:relative;"><path d="m9 11 3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        <div style="position:relative; font-size:34px; font-weight:700; letter-spacing:-.03em; margin-top:16px;">90%</div>
+        <div style="position:relative; font-size:14px; color:#AEB7CC; margin-top:4px;">fewer manual data errors</div>
+      </div>
+      <div data-reveal data-reveal-delay="160" style="border-radius:18px; background:#fff; border:1px solid rgba(17,22,31,.08); padding:24px;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0E7490" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        <div style="font-size:34px; font-weight:700; letter-spacing:-.03em; color:#11161F; margin-top:16px;">3×</div>
+        <div style="font-size:14px; color:#6A7180; margin-top:4px;">faster to launch vs in-house</div>
+      </div>
+      <div data-reveal data-reveal-delay="240" style="border-radius:18px; background:#1E40AF; color:#fff; padding:24px; position:relative; overflow:hidden;">
+        <div style="position:absolute; right:-24px; bottom:-24px; width:120px; height:120px; background:radial-gradient(circle,rgba(34,211,238,.45),transparent 65%); filter:blur(12px);"></div>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="position:relative;"><path d="M3 3v18h18M7 14l4-4 3 3 5-6"/></svg>
+        <div style="position:relative; font-size:34px; font-weight:700; letter-spacing:-.03em; margin-top:16px;">100%</div>
+        <div style="position:relative; font-size:14px; color:#C7D3FF; margin-top:4px;">source code &amp; IP, yours</div>
+      </div>
+    </div>
+    <!-- featured case study spotlight -->
+    <article data-reveal data-parallax-wrap style="position:relative; border-radius:24px; overflow:hidden; background:linear-gradient(150deg,#0A0E1A,#11193A); color:#fff; display:grid; grid-template-columns:1.05fr .95fr; gap:0; box-shadow:0 40px 90px -40px rgba(11,16,32,.6);">
+      <div style="position:absolute; inset:0; background-image:radial-gradient(rgba(255,255,255,.05) 1px,transparent 1px); background-size:3px 3px; opacity:.5; pointer-events:none;"></div>
+      <div style="position:relative; padding:46px 44px;">
+        <div style="display:inline-flex; align-items:center; gap:8px; padding:6px 12px; border:1px solid rgba(255,255,255,.14); border-radius:8px; font-family:'Geist Mono',monospace; font-size:11px; letter-spacing:.05em; text-transform:uppercase; color:#A9C2FF;">Financial Services · Case study</div>
+        <h3 style="margin:24px 0 0; font-size:30px; font-weight:600; letter-spacing:-.025em; line-height:1.12; max-width:440px;">How Finovo cut loan approval from 3 days to 20 minutes.</h3>
+        <p style="margin:16px 0 0; font-size:15.5px; line-height:1.6; color:#AEB7CC; max-width:460px;">Finovo's loan operations ran on spreadsheets, email, and three disconnected systems. We built an AI-assisted underwriting workflow with human approval on every sanction — applications now route, score, and update themselves.</p>
+        <div style="display:flex; gap:30px; margin-top:30px; flex-wrap:wrap;">
+          <div><div style="font-size:40px; font-weight:700; letter-spacing:-.03em; color:#22D3EE;">₹1.4 Cr</div><div style="font-size:13px; color:#8C97B3; margin-top:2px;">saved per year</div></div>
+          <div><div style="font-size:40px; font-weight:700; letter-spacing:-.03em; color:#fff;">85%</div><div style="font-size:13px; color:#8C97B3; margin-top:2px;">less manual work</div></div>
+          <div><div style="font-size:40px; font-weight:700; letter-spacing:-.03em; color:#fff;">3 mo</div><div style="font-size:13px; color:#8C97B3; margin-top:2px;">to full ROI</div></div>
+        </div>
+        <a href="#contact" data-scroll="#contact" style="display:inline-flex; align-items:center; gap:9px; margin-top:32px; font-size:15px; font-weight:600; color:#0A0E1A; background:#22D3EE; text-decoration:none; padding:13px 20px; border-radius:11px; transition:transform .2s, box-shadow .2s;" style-hover="transform:translateY(-2px); box-shadow:0 12px 30px rgba(34,211,238,.35);">See more results <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <!-- dashboard mock -->
+      <div style="position:relative; padding:36px 36px 0; display:flex; align-items:flex-end; overflow:hidden;">
+        <div data-parallax style="width:100%; background:#0E1426; border:1px solid rgba(255,255,255,.1); border-radius:16px 16px 0 0; padding:18px; box-shadow:0 -10px 50px -20px rgba(0,0,0,.6); transform:perspective(1200px) rotateX(6deg) rotateY(-7deg); transform-origin:bottom center;">
+          <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:16px;">
+            <div style="display:flex; align-items:center; gap:7px;"><span style="width:8px; height:8px; border-radius:50%; background:#22D3EE; box-shadow:0 0 8px #22D3EE;"></span><span style="font-family:'Geist Mono',monospace; font-size:11px; color:#9AA6C4;">loan-ops · live</span></div>
+            <span style="font-family:'Geist Mono',monospace; font-size:11px; color:#69769B;">Q4</span>
+          </div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:14px;">
+            <div style="background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.07); border-radius:11px; padding:13px;"><div style="font-family:'Geist Mono',monospace; font-size:9.5px; color:#69769B; text-transform:uppercase; letter-spacing:.05em;">Tasks auto-closed</div><div style="font-size:20px; font-weight:600; margin-top:4px; color:#fff;">847<span style="font-size:12px; color:#22D3EE;"> / 902</span></div></div>
+            <div style="background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.07); border-radius:11px; padding:13px;"><div style="font-family:'Geist Mono',monospace; font-size:9.5px; color:#69769B; text-transform:uppercase; letter-spacing:.05em;">Exceptions</div><div style="font-size:20px; font-weight:600; margin-top:4px; color:#fff;">55</div></div>
+          </div>
+          <div style="background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.07); border-radius:11px; padding:15px;">
+            <div style="font-family:'Geist Mono',monospace; font-size:9.5px; color:#69769B; text-transform:uppercase; letter-spacing:.05em; margin-bottom:12px;">Approval time · days</div>
+            <div style="display:flex; align-items:flex-end; gap:6px; height:78px;">
+              <span style="flex:1; background:linear-gradient(180deg,#2563EB,#1E40AF); border-radius:4px 4px 0 0; height:100%;"></span>
+              <span style="flex:1; background:linear-gradient(180deg,#2563EB,#1E40AF); border-radius:4px 4px 0 0; height:74%;"></span>
+              <span style="flex:1; background:linear-gradient(180deg,#2563EB,#1E40AF); border-radius:4px 4px 0 0; height:52%;"></span>
+              <span style="flex:1; background:linear-gradient(180deg,#22D3EE,#0E7490); border-radius:4px 4px 0 0; height:33%;"></span>
+              <span style="flex:1; background:linear-gradient(180deg,#22D3EE,#0E7490); border-radius:4px 4px 0 0; height:30%;"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section style="padding:8px 0 96px;">
+  <div style="max-width:1240px; margin:0 auto; padding:0 28px;">
+    <div style="display:grid; grid-template-columns:1.4fr 1fr; gap:18px;" data-testi>
+      <figure data-reveal style="margin:0; border-radius:22px; background:#F0F3FB; border:1px solid rgba(30,64,175,.1); padding:40px;">
+        <div style="display:flex; gap:3px; margin-bottom:18px;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="#1E40AF"><path d="m12 2 2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17l-6.2 3.3 1.6-6.8L2.2 8.9l6.9-.6z"/></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="#1E40AF"><path d="m12 2 2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17l-6.2 3.3 1.6-6.8L2.2 8.9l6.9-.6z"/></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="#1E40AF"><path d="m12 2 2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17l-6.2 3.3 1.6-6.8L2.2 8.9l6.9-.6z"/></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="#1E40AF"><path d="m12 2 2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17l-6.2 3.3 1.6-6.8L2.2 8.9l6.9-.6z"/></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="#1E40AF"><path d="m12 2 2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17l-6.2 3.3 1.6-6.8L2.2 8.9l6.9-.6z"/></svg>
+        </div>
+        <blockquote style="margin:0; font-size:23px; line-height:1.4; letter-spacing:-.015em; font-weight:500; color:#11161F;">"Clipupp built our loan platform in eight weeks and delivered on the exact date they promised. We own all the code, and their team still ships improvements every month."</blockquote>
+        <figcaption style="margin-top:26px; display:flex; align-items:center; gap:13px;">
+          <span style="width:46px; height:46px; border-radius:50%; background:linear-gradient(135deg,#2563EB,#1E40AF); display:flex; align-items:center; justify-content:center; font-weight:600; color:#fff; font-size:16px;">AM</span>
+          <span><span style="display:block; font-weight:600; color:#11161F;">Arjun Mehta</span><span style="display:block; font-size:13.5px; color:#6A7180;">Founder, Finovo</span></span>
+        </figcaption>
+      </figure>
+      <div style="display:grid; gap:18px;">
+        <figure data-reveal data-reveal-delay="100" style="margin:0; border-radius:22px; background:#0A0E1A; color:#fff; padding:30px; position:relative; overflow:hidden;">
+          <div style="position:absolute; inset:0; background-image:radial-gradient(rgba(255,255,255,.05) 1px,transparent 1px); background-size:3px 3px; opacity:.5;"></div>
+          <blockquote style="position:relative; margin:0; font-size:16.5px; line-height:1.5; font-weight:500;">"They automated our order-to-dispatch flow end to end. What took a team of four now runs on its own."</blockquote>
+          <figcaption style="position:relative; margin-top:20px; display:flex; align-items:center; gap:11px;">
+            <span style="width:40px; height:40px; border-radius:50%; background:#22D3EE; display:flex; align-items:center; justify-content:center; font-weight:600; color:#0A2540; font-size:14px;">PN</span>
+            <span><span style="display:block; font-weight:600; font-size:14.5px;">Priya Nair</span><span style="display:block; font-size:13px; color:#9AA6C4;">COO, TransIndia Logistics</span></span>
+          </figcaption>
+        </figure>
+        <figure data-reveal data-reveal-delay="180" style="margin:0; border-radius:22px; background:#fff; border:1px solid rgba(17,22,31,.08); padding:30px;">
+          <blockquote style="margin:0; font-size:16.5px; line-height:1.5; font-weight:500; color:#11161F;">"Their AI chatbot handles most patient queries now, and the dashboards finally gave us one clear view of the business."</blockquote>
+          <figcaption style="margin-top:20px; display:flex; align-items:center; gap:11px;">
+            <span style="width:40px; height:40px; border-radius:50%; background:linear-gradient(135deg,#0E7490,#155E75); display:flex; align-items:center; justify-content:center; font-weight:600; color:#fff; font-size:14px;">RK</span>
+            <span><span style="display:block; font-weight:600; font-size:14.5px; color:#11161F;">Ravi Khanna</span><span style="display:block; font-size:13px; color:#6A7180;">Director, MediCare Clinics</span></span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECURITY / COMPLIANCE ROW ============ -->
+<section style="padding:0 0 24px;">
+  <div style="max-width:1240px; margin:0 auto; padding:0 28px;">
+    <div data-reveal style="border-radius:20px; border:1px solid rgba(17,22,31,.08); background:#fff; padding:26px 32px; display:flex; align-items:center; gap:30px; flex-wrap:wrap; justify-content:space-between;">
+      <div style="display:flex; align-items:center; gap:13px; max-width:340px;">
+        <span style="width:44px; height:44px; border-radius:12px; background:#0A0E1A; display:flex; align-items:center; justify-content:center; flex:0 0 auto;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#22D3EE" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg></span>
+        <div><div style="font-weight:600; font-size:15px; color:#11161F;">Built secure, owned by you</div><div style="font-size:13px; color:#6A7180; margin-top:2px;">NDA-backed, your data stays yours, full source-code handover.</div></div>
+      </div>
+      <div style="display:flex; align-items:center; gap:26px; flex-wrap:wrap;">
+        <span style="font-family:'Geist Mono',monospace; font-size:13px; font-weight:500; color:#41495A; letter-spacing:.02em;">NDA-backed</span>
+        <span style="width:5px; height:5px; border-radius:50%; background:#D4D7DD;"></span>
+        <span style="font-family:'Geist Mono',monospace; font-size:13px; font-weight:500; color:#41495A; letter-spacing:.02em;">Full IP ownership</span>
+        <span style="width:5px; height:5px; border-radius:50%; background:#D4D7DD;"></span>
+        <span style="font-family:'Geist Mono',monospace; font-size:13px; font-weight:500; color:#41495A; letter-spacing:.02em;">ISO 27001-aligned</span>
+        <span style="width:5px; height:5px; border-radius:50%; background:#D4D7DD;"></span>
+        <span style="font-family:'Geist Mono',monospace; font-size:13px; font-weight:500; color:#41495A; letter-spacing:.02em;">Secure access</span>
+        <span style="width:5px; height:5px; border-radius:50%; background:#D4D7DD;"></span>
+        <span style="font-family:'Geist Mono',monospace; font-size:13px; font-weight:500; color:#41495A; letter-spacing:.02em;">Regular backups</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ENGAGEMENT TEASER ============ -->
+<section id="pricing" style="padding:72px 0 96px;">
+  <div style="max-width:1240px; margin:0 auto; padding:0 28px;">
+    <div style="display:flex; align-items:flex-end; justify-content:space-between; gap:24px; flex-wrap:wrap; margin-bottom:36px;" data-reveal>
+      <div style="max-width:560px;">
+        <div style="font-family:'Geist Mono',monospace; font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:#1E40AF; margin-bottom:14px;">/ Engagement models</div>
+        <h2 style="margin:0; font-size:clamp(30px,3.8vw,46px); line-height:1.04; letter-spacing:-.035em; font-weight:300; color:#11161F;">Start small. <span style="font-weight:700;">Scale on proof.</span></h2>
+      </div>
+      <p style="margin:0; font-size:15px; color:#6A7180; max-width:300px;">Four ways to work with us — start with a quick discovery and scale once you see results.</p>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:16px;" data-engagement>
+      <div data-reveal style="border-radius:18px; border:1px solid rgba(17,22,31,.1); background:#fff; padding:26px; display:flex; flex-direction:column;">
+        <div style="font-family:'Geist Mono',monospace; font-size:11px; letter-spacing:.05em; text-transform:uppercase; color:#7A828F;">01 · Discovery</div>
+        <h3 style="margin:14px 0 0; font-size:19px; font-weight:600; color:#11161F;">Consultation</h3>
+        <p style="margin:9px 0 0; font-size:13.5px; line-height:1.5; color:#6A7180; flex:1;">A short discovery + proposal: scope, timeline, and a fixed quote for your project.</p>
+        <div style="margin-top:16px; font-size:13px; font-weight:600; color:#1E40AF;">Free</div>
+      </div>
+      <div data-reveal data-reveal-delay="80" style="border-radius:18px; border:1px solid rgba(17,22,31,.1); background:#fff; padding:26px; display:flex; flex-direction:column;">
+        <div style="font-family:'Geist Mono',monospace; font-size:11px; letter-spacing:.05em; text-transform:uppercase; color:#7A828F;">02 · MVP</div>
+        <h3 style="margin:14px 0 0; font-size:19px; font-weight:600; color:#11161F;">Pilot Build</h3>
+        <p style="margin:9px 0 0; font-size:13.5px; line-height:1.5; color:#6A7180; flex:1;">A first module or MVP, built and shipped fast so you see it working.</p>
+        <div style="margin-top:16px; font-size:13px; font-weight:600; color:#1E40AF;">Talk to us</div>
+      </div>
+      <div data-reveal data-reveal-delay="160" style="position:relative; border-radius:18px; border:1px solid #1E40AF; background:linear-gradient(165deg,#11193A,#0A0E1A); color:#fff; padding:26px; display:flex; flex-direction:column; box-shadow:0 24px 50px -26px rgba(30,64,175,.6);">
+        <div style="position:absolute; top:-11px; right:18px; font-family:'Geist Mono',monospace; font-size:10px; letter-spacing:.06em; text-transform:uppercase; background:#22D3EE; color:#0A2540; padding:4px 9px; border-radius:6px; font-weight:600;">Most chosen</div>
+        <div style="font-family:'Geist Mono',monospace; font-size:11px; letter-spacing:.05em; text-transform:uppercase; color:#7DE3F4;">03 · Project</div>
+        <h3 style="margin:14px 0 0; font-size:19px; font-weight:600;">Full Build</h3>
+        <p style="margin:9px 0 0; font-size:13.5px; line-height:1.5; color:#AEB7CC; flex:1;">Full product or multi-module build — designed, developed &amp; delivered end to end.</p>
+        <div style="margin-top:16px; font-size:13px; font-weight:600; color:#22D3EE;">Talk to us</div>
+      </div>
+      <div data-reveal data-reveal-delay="240" style="border-radius:18px; border:1px solid rgba(17,22,31,.1); background:#fff; padding:26px; display:flex; flex-direction:column;">
+        <div style="font-family:'Geist Mono',monospace; font-size:11px; letter-spacing:.05em; text-transform:uppercase; color:#7A828F;">04 · Ongoing</div>
+        <h3 style="margin:14px 0 0; font-size:19px; font-weight:600; color:#11161F;">Retainer</h3>
+        <p style="margin:9px 0 0; font-size:13.5px; line-height:1.5; color:#6A7180; flex:1;">Ongoing development, support &amp; improvements — a dedicated team on call.</p>
+        <div style="margin-top:16px; font-size:13px; font-weight:600; color:#1E40AF;">Monthly</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA ============ -->
+<section id="contact" style="position:relative; padding:24px 0 96px;">
+  <div style="max-width:1240px; margin:0 auto; padding:0 28px;">
+    <div data-reveal style="position:relative; overflow:hidden; border-radius:28px; background:linear-gradient(150deg,#1E40AF 0%,#152C75 60%,#0A0E1A 100%); color:#fff; padding:62px 56px;">
+      <div style="position:absolute; inset:0; background-image:radial-gradient(rgba(255,255,255,.06) 1px,transparent 1px); background-size:3px 3px; opacity:.6; pointer-events:none;"></div>
+      <div style="position:absolute; right:-80px; top:-80px; width:360px; height:360px; background:radial-gradient(circle,rgba(34,211,238,.32),transparent 62%); filter:blur(28px); pointer-events:none;"></div>
+      <div style="position:relative; display:grid; grid-template-columns:1.1fr .9fr; gap:48px; align-items:center;" data-cta-grid>
+        <div>
+          <h2 style="margin:0; font-size:clamp(30px,4vw,48px); line-height:1.05; letter-spacing:-.035em; font-weight:300;">Tell us what you<br><span style="font-weight:700;">want to build.</span></h2>
+          <p style="margin:18px 0 0; font-size:16.5px; line-height:1.55; color:#C7D3FF; max-width:440px;">Book a free 30-minute call. We'll understand your goals and come back with a clear plan, timeline, and a fixed quote — no obligation.</p>
+          <div style="margin-top:30px; display:flex; flex-wrap:wrap; gap:13px;">
+            <a href="#contact" style="display:inline-flex; align-items:center; gap:9px; font-size:15.5px; font-weight:600; color:#0A0E1A; background:#22D3EE; text-decoration:none; padding:15px 24px; border-radius:12px; transition:transform .2s, box-shadow .2s;" style-hover="transform:translateY(-2px); box-shadow:0 16px 38px rgba(34,211,238,.4);">Get a free quote <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a href="#cases" data-scroll="#cases" style="display:inline-flex; align-items:center; gap:9px; font-size:15.5px; font-weight:600; color:#fff; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.2); text-decoration:none; padding:15px 22px; border-radius:12px; transition:background .2s;" style-hover="background:rgba(255,255,255,.18);">See our work</a>
+          </div>
+        </div>
+        <div style="background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.12); border-radius:18px; padding:28px;">
+          <div style="font-family:'Geist Mono',monospace; font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:#A9C2FF; margin-bottom:18px;">What happens next</div>
+          <ol style="list-style:none; margin:0; padding:0; display:grid; gap:16px;">
+            <li style="display:flex; gap:13px; align-items:flex-start;"><span style="flex:0 0 auto; width:26px; height:26px; border-radius:8px; background:rgba(34,211,238,.15); border:1px solid rgba(34,211,238,.3); display:flex; align-items:center; justify-content:center; font-family:'Geist Mono',monospace; font-size:12px; color:#22D3EE;">1</span><div><div style="font-weight:600; font-size:14.5px;">Discovery call (30 min)</div><div style="font-size:13px; color:#AEB7CC; margin-top:2px;">We learn your goals, requirements &amp; budget.</div></div></li>
+            <li style="display:flex; gap:13px; align-items:flex-start;"><span style="flex:0 0 auto; width:26px; height:26px; border-radius:8px; background:rgba(34,211,238,.15); border:1px solid rgba(34,211,238,.3); display:flex; align-items:center; justify-content:center; font-family:'Geist Mono',monospace; font-size:12px; color:#22D3EE;">2</span><div><div style="font-weight:600; font-size:14.5px;">Proposal (within a few days)</div><div style="font-size:13px; color:#AEB7CC; margin-top:2px;">Clear scope, timeline &amp; a fixed quote.</div></div></li>
+            <li style="display:flex; gap:13px; align-items:flex-start;"><span style="flex:0 0 auto; width:26px; height:26px; border-radius:8px; background:rgba(34,211,238,.15); border:1px solid rgba(34,211,238,.3); display:flex; align-items:center; justify-content:center; font-family:'Geist Mono',monospace; font-size:12px; color:#22D3EE;">3</span><div><div style="font-weight:600; font-size:14.5px;">We start building</div><div style="font-size:13px; color:#AEB7CC; margin-top:2px;">Delivered on time, with you in the loop.</div></div></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER (shared) ============ -->
+<dc-import name="ClipFooter" hint-size="100%,420px"></dc-import>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  rootRef = React.createRef();
+
+  renderVals() {
+    return { brand: 'Clipupp', year: 2026, rootRef: this.rootRef };
+  }
+
+  componentDidMount() {
+    const root = this.rootRef.current;
+    if (!root) return;
+    const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    this._cleanups = [];
+
+    this.setupScrollReveal(root, reduced);
+    this.setupTabs(root);
+    this.setupHeader(root);
+    this.setupParallax(root, reduced);
+    this.setupMobileNav(root);
+    this.setupNavScroll(root);
+    this.setupResponsive(root);
+
+    if (reduced) {
+      root.querySelectorAll('svg').forEach(s => { try { s.pauseAnimations && s.pauseAnimations(); } catch (e) {} });
+      const mq = root.querySelector('[data-marquee-track]');
+      if (mq) mq.style.animation = 'none';
+    }
+  }
+
+  componentWillUnmount() {
+    (this._cleanups || []).forEach(fn => { try { fn(); } catch (e) {} });
+  }
+
+  setupScrollReveal(root, reduced) {
+    const reveals = Array.from(root.querySelectorAll('[data-reveal]'));
+    const counters = Array.from(root.querySelectorAll('[data-counter]'));
+    const stepLine = root.querySelector('[data-step-line]');
+    const fmt = (v, dec) => {
+      const n = dec > 0 ? v.toFixed(dec) : Math.round(v);
+      return Number(n).toLocaleString('en-US', { minimumFractionDigits: dec, maximumFractionDigits: dec });
+    };
+    const animateCounter = (el) => {
+      const target = parseFloat(el.dataset.counter);
+      const dec = parseInt(el.dataset.dec || 0);
+      if (reduced) { el.textContent = fmt(target, dec); return; }
+      const dur = 1700, start = performance.now();
+      const tick = (now) => {
+        let p = Math.min(1, (now - start) / dur);
+        p = 1 - Math.pow(1 - p, 3);
+        el.textContent = fmt(target * p, dec);
+        if (p < 1) requestAnimationFrame(tick); else el.textContent = fmt(target, dec);
+      };
+      requestAnimationFrame(tick);
+    };
+    if (reduced) {
+      reveals.forEach(e => { e.style.opacity = 1; });
+      counters.forEach(animateCounter);
+      if (stepLine) stepLine.style.transform = 'scaleX(1)';
+      return;
+    }
+    const shown = new Set(), counted = new Set();
+    let lineShown = false, raf = null;
+    const h = () => window.innerHeight || 800;
+    // Hide only elements clearly below the fold; above-the-fold stays painted (no blank flash).
+    reveals.forEach(e => {
+      const r = e.getBoundingClientRect();
+      if (r.top > h() * 0.9) {
+        e.style.opacity = 0;
+        e.style.transform = 'translateY(26px)';
+        e.style.transition = 'opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1)';
+        e.style.willChange = 'opacity, transform';
+      } else {
+        shown.add(e);
+      }
+    });
+    const revealEl = (e) => {
+      if (shown.has(e)) return;
+      shown.add(e);
+      const d = parseFloat(e.dataset.revealDelay || 0);
+      e.style.transitionDelay = d + 'ms';
+      e.style.opacity = 1;
+      e.style.transform = 'none';
+    };
+    const countEl = (e) => { if (!counted.has(e)) { counted.add(e); animateCounter(e); } };
+    const showLine = () => { if (stepLine && !lineShown) { lineShown = true; stepLine.style.transform = 'scaleX(1)'; } };
+    const vis = (el, gap) => { const r = el.getBoundingClientRect(); return r.top < h() * (1 - gap) && r.bottom > -40; };
+    const check = () => {
+      raf = null;
+      reveals.forEach(e => { if (!shown.has(e) && vis(e, 0.08)) revealEl(e); });
+      counters.forEach(e => { if (!counted.has(e) && vis(e, 0)) countEl(e); });
+      if (stepLine && vis(stepLine, 0)) showLine();
+    };
+    const onScroll = () => { if (!raf) raf = requestAnimationFrame(check); };
+
+    // Primary trigger: IntersectionObserver (fires without scroll events; works in embedded iframes).
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((ents) => {
+        ents.forEach(en => {
+          if (!en.isIntersecting) return;
+          const t = en.target;
+          if (t.hasAttribute('data-counter')) countEl(t);
+          else if (t.hasAttribute('data-step-line')) showLine();
+          else revealEl(t);
+          io.unobserve(t);
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+      reveals.forEach(e => { if (!shown.has(e)) io.observe(e); });
+      counters.forEach(e => io.observe(e));
+      if (stepLine) io.observe(stepLine);
+      this._cleanups.push(() => io.disconnect());
+    }
+    // Enhancement + fallback: scroll position checks.
+    check();
+    requestAnimationFrame(() => { check(); requestAnimationFrame(check); });
+    window.addEventListener('scroll', onScroll, { passive: true });
+    document.addEventListener('scroll', onScroll, { passive: true, capture: true });
+    window.addEventListener('resize', onScroll);
+    // Safety net: never leave content permanently hidden if no scroll/IO ever fires.
+    const safety = setTimeout(() => { reveals.forEach(revealEl); counters.forEach(countEl); showLine(); }, 2600);
+    this._cleanups.push(() => {
+      clearTimeout(safety);
+      window.removeEventListener('scroll', onScroll);
+      document.removeEventListener('scroll', onScroll, { capture: true });
+      window.removeEventListener('resize', onScroll);
+    });
+  }
+
+  setupReveal(root, reduced) {
+    const els = Array.from(root.querySelectorAll('[data-reveal]'));
+    if (reduced || !('IntersectionObserver' in window)) {
+      els.forEach(e => { e.style.opacity = 1; });
+      return;
+    }
+    els.forEach(e => {
+      e.style.opacity = 0;
+      e.style.transform = 'translateY(26px)';
+      e.style.transition = 'opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1)';
+      e.style.willChange = 'opacity, transform';
+    });
+    const io = new IntersectionObserver((ents) => {
+      ents.forEach(en => {
+        if (en.isIntersecting) {
+          const el = en.target;
+          const d = parseFloat(el.dataset.revealDelay || 0);
+          el.style.transitionDelay = d + 'ms';
+          el.style.opacity = 1;
+          el.style.transform = 'none';
+          io.unobserve(el);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -7% 0px' });
+    els.forEach(e => io.observe(e));
+    this._cleanups.push(() => io.disconnect());
+  }
+
+  setupCounters(root, reduced) {
+    const els = Array.from(root.querySelectorAll('[data-counter]'));
+    const fmt = (v, dec) => {
+      const n = dec > 0 ? v.toFixed(dec) : Math.round(v);
+      return Number(n).toLocaleString('en-US', { minimumFractionDigits: dec, maximumFractionDigits: dec });
+    };
+    const animate = (el) => {
+      const target = parseFloat(el.dataset.counter);
+      const dec = parseInt(el.dataset.dec || 0);
+      if (reduced) { el.textContent = fmt(target, dec); return; }
+      const dur = 1700;
+      const start = performance.now();
+      const tick = (now) => {
+        let p = Math.min(1, (now - start) / dur);
+        p = 1 - Math.pow(1 - p, 3);
+        el.textContent = fmt(target * p, dec);
+        if (p < 1) requestAnimationFrame(tick);
+        else el.textContent = fmt(target, dec);
+      };
+      requestAnimationFrame(tick);
+    };
+    if (!('IntersectionObserver' in window)) { els.forEach(animate); return; }
+    const io = new IntersectionObserver((ents) => {
+      ents.forEach(en => { if (en.isIntersecting) { animate(en.target); io.unobserve(en.target); } });
+    }, { threshold: 0.5 });
+    els.forEach(e => io.observe(e));
+    this._cleanups.push(() => io.disconnect());
+  }
+
+  setupTabs(root) {
+    const btns = Array.from(root.querySelectorAll('[data-tab]'));
+    const panels = Array.from(root.querySelectorAll('[data-panel]'));
+    const activate = (key) => {
+      btns.forEach(b => {
+        const on = b.dataset.tab === key;
+        b.style.background = on ? '#1E40AF' : '#fff';
+        b.style.color = on ? '#fff' : '#41495A';
+        b.style.borderColor = on ? '#1E40AF' : 'rgba(17,22,31,.1)';
+        b.style.boxShadow = on ? '0 8px 20px -8px rgba(30,64,175,.6)' : 'none';
+        b.setAttribute('aria-selected', on ? 'true' : 'false');
+      });
+      panels.forEach(p => {
+        const on = p.dataset.panel === key;
+        p.style.display = on ? 'grid' : 'none';
+      });
+    };
+    btns.forEach(b => {
+      b.setAttribute('role', 'tab');
+      b.addEventListener('click', () => activate(b.dataset.tab));
+    });
+    activate('hr');
+  }
+
+  setupHeader(root) {
+    const header = root.querySelector('[data-header]');
+    if (!header) return;
+    const onScroll = () => {
+      const s = window.scrollY > 16;
+      header.style.background = s ? 'rgba(247,246,243,.82)' : 'transparent';
+      header.style.backdropFilter = s ? 'saturate(180%) blur(16px)' : 'none';
+      header.style.webkitBackdropFilter = s ? 'saturate(180%) blur(16px)' : 'none';
+      header.style.borderBottomColor = s ? 'rgba(17,22,31,.08)' : 'transparent';
+      header.style.boxShadow = s ? '0 6px 24px -16px rgba(17,22,31,.4)' : 'none';
+      header.style.padding = s ? '12px 0' : '20px 0';
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    this._cleanups.push(() => window.removeEventListener('scroll', onScroll));
+  }
+
+  setupParallax(root, reduced) {
+    if (reduced) return;
+    const el = root.querySelector('[data-parallax]');
+    const wrap = root.querySelector('[data-parallax-wrap]');
+    if (!el || !wrap) return;
+    let raf = null;
+    const baseTransform = 'perspective(1200px) rotateX(6deg) rotateY(-7deg)';
+    const update = () => {
+      raf = null;
+      const r = wrap.getBoundingClientRect();
+      const vh = window.innerHeight;
+      const prog = (r.top + r.height / 2 - vh / 2) / vh; // -ish range
+      const y = Math.max(-24, Math.min(24, -prog * 34));
+      el.style.transform = baseTransform + ' translateY(' + y.toFixed(1) + 'px)';
+    };
+    const onScroll = () => { if (!raf) raf = requestAnimationFrame(update); };
+    update();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    this._cleanups.push(() => window.removeEventListener('scroll', onScroll));
+  }
+
+  setupMobileNav(root) {
+    const toggle = root.querySelector('[data-mobile-toggle]');
+    const menu = root.querySelector('[data-mobile-menu]');
+    if (!toggle || !menu) return;
+    let open = false;
+    const setOpen = (v) => {
+      open = v;
+      menu.style.display = v ? 'block' : 'none';
+      toggle.setAttribute('aria-expanded', v ? 'true' : 'false');
+    };
+    toggle.addEventListener('click', () => setOpen(!open));
+    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setOpen(false)));
+  }
+
+  setupNavScroll(root) {
+    const header = root.querySelector('[data-header]');
+    const links = Array.from(root.querySelectorAll('[data-scroll]'));
+    const onClick = (e, sel) => {
+      const target = root.querySelector(sel);
+      if (!target) return;
+      e.preventDefault();
+      const offset = (header ? header.offsetHeight : 70) + 14;
+      const top = target.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+    };
+    links.forEach(a => {
+      const sel = a.getAttribute('data-scroll');
+      a.addEventListener('click', (e) => onClick(e, sel));
+    });
+  }
+
+  setupStepLine(root, reduced) {
+    const line = root.querySelector('[data-step-line]');
+    if (!line) return;
+    if (reduced) { line.style.transform = 'scaleX(1)'; return; }
+    if (!('IntersectionObserver' in window)) { line.style.transform = 'scaleX(1)'; return; }
+    const io = new IntersectionObserver((ents) => {
+      ents.forEach(en => {
+        if (en.isIntersecting) { line.style.transform = 'scaleX(1)'; io.unobserve(en.target); }
+      });
+    }, { threshold: 0.4 });
+    io.observe(line);
+    this._cleanups.push(() => io.disconnect());
+  }
+
+  setupResponsive(root) {
+    const apply = () => {
+      const w = window.innerWidth;
+      const desktopNav = root.querySelector('[data-desktop-nav]');
+      const desktopCta = root.querySelector('[data-desktop-cta]');
+      const mToggle = root.querySelector('[data-mobile-toggle]');
+      const mMenu = root.querySelector('[data-mobile-menu]');
+      const isMobile = w < 1024;
+      if (desktopNav) desktopNav.style.display = isMobile ? 'none' : 'flex';
+      if (desktopCta) desktopCta.style.display = isMobile ? 'none' : 'flex';
+      if (mToggle) mToggle.style.display = isMobile ? 'flex' : 'none';
+      if (!isMobile && mMenu) mMenu.style.display = 'none';
+
+      // grid collapses
+      const setCols = (sel, mobile, desktop) => {
+        const el = root.querySelector(sel);
+        if (el) el.style.gridTemplateColumns = w < 960 ? mobile : desktop;
+      };
+      setCols('[data-hero-grid]', '1fr', 'minmax(0,1.04fr) minmax(0,.96fr)');
+      setCols('[data-stat-grid]', w < 620 ? '1fr 1fr' : 'repeat(4,1fr)', 'repeat(4,1fr)');
+      setCols('[data-outcomes]', w < 620 ? '1fr 1fr' : 'repeat(4,1fr)', 'repeat(4,1fr)');
+      setCols('[data-engagement]', w < 620 ? '1fr' : '1fr 1fr', 'repeat(4,1fr)');
+      setCols('[data-testi]', '1fr', '1.4fr 1fr');
+      setCols('[data-cta-grid]', '1fr', '1.1fr .9fr');
+      setCols('[data-steps]', w < 720 ? '1fr 1fr' : 'repeat(4,1fr)', 'repeat(4,1fr)');
+
+      // bento spans
+      const bento = root.querySelector('[data-bento]');
+      if (bento) {
+        const arts = Array.from(bento.children);
+        if (w < 760) {
+          bento.style.gridTemplateColumns = '1fr';
+          arts.forEach(a => a.style.gridColumn = 'span 1');
+        } else if (w < 1000) {
+          bento.style.gridTemplateColumns = 'repeat(6,1fr)';
+          const spans = ['span 6','span 6','span 3','span 3','span 3','span 3'];
+          arts.forEach((a,i) => a.style.gridColumn = spans[i] || 'span 3');
+        } else {
+          bento.style.gridTemplateColumns = 'repeat(12,1fr)';
+          const spans = ['span 7','span 5','span 5','span 4','span 3'];
+          arts.forEach((a,i) => a.style.gridColumn = spans[i] || 'span 4');
+        }
+      }
+
+      // panels stack
+      root.querySelectorAll('[data-panel]').forEach(p => {
+        if (p.style.display !== 'none') p.style.gridTemplateColumns = w < 760 ? '1fr' : '1.15fr .85fr';
+        else p.dataset.cols = w < 760 ? '1fr' : '1.15fr .85fr';
+      });
+      // case study
+      const cs = root.querySelector('[data-parallax-wrap]');
+      if (cs) cs.style.gridTemplateColumns = w < 860 ? '1fr' : '1.05fr .95fr';
+      // footer
+      const fcols = root.querySelector('footer > div > div');
+      if (fcols) fcols.style.gridTemplateColumns = w < 760 ? '1fr 1fr' : (w < 1000 ? '1.4fr 1fr 1fr' : '1.6fr 1fr 1fr 1fr 1.2fr');
+    };
+    apply();
+    window.addEventListener('resize', apply);
+    // re-apply panel cols on tab switch
+    root.querySelectorAll('[data-tab]').forEach(b => b.addEventListener('click', () => requestAnimationFrame(apply)));
+    this._cleanups.push(() => window.removeEventListener('resize', apply));
+  }
+}
+</script>
+</body>
+</html>

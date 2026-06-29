@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { margin:0; background:#F7F6F3; -webkit-font-smoothing:antialiased; }
+  ::selection { background:#1E40AF; color:#fff; }
+  input[type=range].cl-range { -webkit-appearance:none; appearance:none; width:100%; height:6px; border-radius:999px; background:rgba(255,255,255,.16); outline:none; }
+  input[type=range].cl-range::-webkit-slider-thumb { -webkit-appearance:none; width:20px; height:20px; border-radius:50%; background:#22D3EE; cursor:pointer; box-shadow:0 0 0 4px rgba(34,211,238,.2); border:none; }
+  input[type=range].cl-range::-moz-range-thumb { width:20px; height:20px; border-radius:50%; background:#22D3EE; cursor:pointer; border:none; box-shadow:0 0 0 4px rgba(34,211,238,.2); }
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} *{animation-duration:.001ms!important;} }
+</style>
+</helmet>
+<div ref="{{ rootRef }}" style="font-family:'Geist',system-ui,-apple-system,sans-serif; color:#11161F; background:#F7F6F3; overflow-x:hidden;">
+
+<dc-import name="ClipNav" active="pricing" hint-size="100%,1px"></dc-import>
+
+<!-- HERO -->
+<section style="position:relative; padding:150px 0 56px;">
+  <div style="position:absolute; inset:0; background-image:linear-gradient(rgba(17,22,31,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(17,22,31,.035) 1px,transparent 1px); background-size:54px 54px; -webkit-mask-image:radial-gradient(120% 80% at 50% 0%,#000 18%,transparent 70%); mask-image:radial-gradient(120% 80% at 50% 0%,#000 18%,transparent 70%); pointer-events:none;"></div>
+  <div style="max-width:1240px; margin:0 auto; padding:0 28px; position:relative; text-align:center;" data-reveal>
+    <div style="font-family:'Geist Mono',monospace; font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:#1E40AF; margin-bottom:16px;">/ Engagement models</div>
+    <h1 style="margin:0 auto; max-width:760px; font-size:clamp(38px,5vw,62px); line-height:1.02; letter-spacing:-.035em; font-weight:300;">Start small. <span style="font-weight:700;">Scale on proof.</span></h1>
+    <p style="margin:22px auto 0; font-size:18.5px; line-height:1.55; color:#48505F; max-width:560px;">Every project is scoped and priced to fit. Start with a free consultation — we'll give you a clear plan, timeline, and fixed quote before you commit to anything.</p>
+  </div>
+</section>
+
+<!-- MODELS -->
+<section style="padding:0 0 72px;">
+  <div style="max-width:1240px; margin:0 auto; padding:0 28px;">
+    <div data-models style="display:grid; grid-template-columns:repeat(6,1fr); gap:18px;">
+      <article data-reveal style="grid-column:span 3; border:1px solid rgba(17,22,31,.1); border-radius:20px; background:#fff; padding:30px; display:flex; flex-direction:column;">
+        <div style="display:flex; align-items:center; justify-content:space-between;"><span style="font-family:'Geist Mono',monospace; font-size:11px; letter-spacing:.05em; text-transform:uppercase; color:#7A828F;">01 · Discovery</span><span style="width:34px; height:34px; border-radius:10px; background:#EEF2FF; display:flex; align-items:center; justify-content:center;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#1E40AF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></span></div>
+        <h3 style="margin:16px 0 0; font-size:22px; font-weight:600; letter-spacing:-.02em;">Consultation</h3>
+        <p style="margin:8px 0 0; font-size:14px; color:#48505F; line-height:1.5;">A short discovery call and proposal — scope, timeline, and a fixed quote for your project. No obligation.</p>
+        <ul style="list-style:none; padding:0; margin:18px 0 0; display:grid; gap:9px;">
+          <li style="display:flex; gap:9px; font-size:13.5px; color:#2B3242;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#15803D" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto; margin-top:1px;"><path d="M20 6 9 17l-5-5"/></svg>Understand your goals</li>
+          <li style="display:flex; gap:9px; font-size:13.5px; color:#2B3242;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#15803D" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto; margin-top:1px;"><path d="M20 6 9 17l-5-5"/></svg>Clear scope &amp; timeline</li>
+          <li style="display:flex; gap:9px; font-size:13.5px; color:#2B3242;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#15803D" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto; margin-top:1px;"><path d="M20 6 9 17l-5-5"/></svg>Fixed quote you keep</li>
+        </ul>
+        <div style="margin-top:auto; padding-top:20px;"><span style="font-size:22px; font-weight:700; letter-spacing:-.02em;">Free</span></div>
+      </article>
+      <article data-reveal data-reveal-delay="80" style="grid-column:span 3; border:1px solid rgba(17,22,31,.1); border-radius:20px; background:#fff; padding:30px; display:flex; flex-direction:column;">
+        <div style="display:flex; align-items:center; justify-content:space-between;"><span style="font-family:'Geist Mono',monospace; font-size:11px; letter-spacing:.05em; text-transform:uppercase; color:#7A828F;">02 · MVP</span><span style="width:34px; height:34px; border-radius:10px; background:#ECFEFF; display:flex; align-items:center; justify-content:center;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#0E7490" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m13 2-3 8h6l-3 8M5 12h14"/></svg></span></div>
+        <h3 style="margin:16px 0 0; font-size:22px; font-weight:600; letter-spacing:-.02em;">Pilot Build</h3>
+        <p style="margin:8px 0 0; font-size:14px; color:#48505F; line-height:1.5;">A first module or MVP, built and shipped fast so you can see it working before committing to more.</p>
+        <ul style="list-style:none; padding:0; margin:18px 0 0; display:grid; gap:9px;">
+          <li style="display:flex; gap:9px; font-size:13.5px; color:#2B3242;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#15803D" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto; margin-top:1px;"><path d="M20 6 9 17l-5-5"/></svg>Live, working software</li>
+          <li style="display:flex; gap:9px; font-size:13.5px; color:#2B3242;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#15803D" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto; margin-top:1px;"><path d="M20 6 9 17l-5-5"/></svg>Fixed scope &amp; timeline</li>
+          <li style="display:flex; gap:9px; font-size:13.5px; color:#2B3242;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#15803D" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto; margin-top:1px;"><path d="M20 6 9 17l-5-5"/></svg>Easy to expand later</li>
+        </ul>
+        <div style="margin-top:auto; padding-top:20px;"><span style="font-size:22px; font-weight:700; letter-spacing:-.02em;">Talk to us</span></div>
+      </article>
+      <article data-reveal data-reveal-delay="60" style="position:relative; grid-column:span 4; border-radius:20px; background:linear-gradient(150deg,#0A0E1A,#11193A); color:#fff; padding:32px; overflow:hidden; display:flex; flex-direction:column;">
+        <div style="position:absolute; inset:0; background-image:radial-gradient(rgba(255,255,255,.05) 1px,transparent 1px); background-size:3px 3px; opacity:.5;"></div>
+        <div style="position:absolute; right:-50px; top:-50px; width:220px; height:220px; background:radial-gradient(circle,rgba(37,99,235,.4),transparent 64%); filter:blur(20px);"></div>
+        <div style="position:relative; display:flex; align-items:center; justify-content:space-between;"><span style="font-family:'Geist Mono',monospace; font-size:11px; letter-spacing:.05em; text-transform:uppercase; color:#7DE3F4;">03 · Project</span><span style="font-family:'Geist Mono',monospace; font-size:10px; letter-spacing:.06em; text-transform:uppercase; background:#22D3EE; color:#0A2540; padding:4px 9px; border-radius:6px; font-weight:600;">Most chosen</span></div>
+        <h3 style="position:relative; margin:16px 0 0; font-size:24px; font-weight:600; letter-spacing:-.02em;">Full Build</h3>
+        <p style="position:relative; margin:8px 0 0; font-size:14.5px; color:#AEB7CC; line-height:1.5; max-width:430px;">A complete product or multi-module build — designed, developed, and delivered end to end, with training so your team is ready on day one.</p>
+        <div style="position:relative; display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:18px;">
+          <span style="font-size:13px; color:#CBD3E6; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.1); padding:8px 12px; border-radius:9px;">Full design &amp; build</span>
+          <span style="font-size:13px; color:#CBD3E6; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.1); padding:8px 12px; border-radius:9px;">On-time delivery</span>
+          <span style="font-size:13px; color:#CBD3E6; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.1); padding:8px 12px; border-radius:9px;">Team training</span>
+          <span style="font-size:13px; color:#CBD3E6; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.1); padding:8px 12px; border-radius:9px;">Full code &amp; IP handover</span>
+        </div>
+        <div style="position:relative; margin-top:auto; padding-top:22px; display:flex; align-items:center; justify-content:space-between;"><span style="font-size:18px; font-weight:600; color:#22D3EE;">Custom quote</span><a href="Contact.dc.html" style="font-size:14px; font-weight:600; color:#0A0E1A; background:#22D3EE; text-decoration:none; padding:11px 18px; border-radius:10px;">Talk to us</a></div>
+      </article>
+      <article data-reveal data-reveal-delay="140" style="grid-column:span 2; border:1px solid rgba(17,22,31,.1); border-radius:20px; background:#fff; padding:30px; display:flex; flex-direction:column;">
+        <div style="display:flex; align-items:center; justify-content:space-between;"><span style="font-family:'Geist Mono',monospace; font-size:11px; letter-spacing:.05em; text-transform:uppercase; color:#7A828F;">04 · Ongoing</span><span style="width:34px; height:34px; border-radius:10px; background:#F0FDF4; display:flex; align-items:center; justify-content:center;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#15803D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 15-6.7L21 8M21 3v5h-5M21 12a9 9 0 0 1-15 6.7L3 16M3 21v-5h5"/></svg></span></div>
+        <h3 style="margin:16px 0 0; font-size:22px; font-weight:600; letter-spacing:-.02em;">Retainer</h3>
+        <p style="margin:8px 0 0; font-size:14px; color:#48505F; line-height:1.5;">Ongoing development, support, and improvements — a dedicated team that keeps your software growing.</p>
+        <div style="margin-top:auto; padding-top:20px;"><span style="font-size:13px; color:#6A7180;">billed</span> <span style="font-size:22px; font-weight:700; letter-spacing:-.02em;">monthly</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ROI CALCULATOR -->
+<section style="position:relative; background:linear-gradient(160deg,#0A0E1A,#11193A); color:#fff; padding:80px 0; overflow:hidden;">
+  <div style="position:absolute; inset:0; background-image:radial-gradient(rgba(255,255,255,.05) 1px,transparent 1px); background-size:3px 3px; opacity:.5; pointer-events:none;"></div>
+  <div style="position:absolute; width:480px; height:480px; left:-160px; bottom:-200px; background:radial-gradient(circle,rgba(30,64,175,.4),transparent 60%); filter:blur(40px); pointer-events:none;"></div>
+  <div style="max-width:1240px; margin:0 auto; padding:0 28px; position:relative; display:grid; grid-template-columns:1fr 1fr; gap:50px; align-items:center;" data-roi-grid>
+    <div data-reveal>
+      <div style="font-family:'Geist Mono',monospace; font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:#7DE3F4; margin-bottom:14px;">/ ROI calculator</div>
+      <h2 style="margin:0; font-size:clamp(26px,3.2vw,38px); line-height:1.06; letter-spacing:-.03em; font-weight:300;">Estimate what manual work<br><span style="font-weight:700;">is costing you today.</span></h2>
+      <p style="margin:16px 0 0; font-size:15px; color:#AEB7CC; max-width:420px;">A rough estimate assuming a 40% cut in automatable manual hours. Your real quote will be more precise.</p>
+      <div style="margin-top:30px; display:grid; gap:22px;">
+        <div>
+          <div style="display:flex; justify-content:space-between; font-size:13.5px; margin-bottom:10px;"><span style="color:#C7D0E3;">People doing manual work</span><span data-out="emp" style="font-family:'Geist Mono',monospace; font-weight:600; color:#22D3EE;">40</span></div>
+          <input class="cl-range" type="range" data-in="emp" min="5" max="500" step="5" value="40">
+        </div>
+        <div>
+          <div style="display:flex; justify-content:space-between; font-size:13.5px; margin-bottom:10px;"><span style="color:#C7D0E3;">Automatable hours / person / week</span><span data-out="hrs" style="font-family:'Geist Mono',monospace; font-weight:600; color:#22D3EE;">12</span></div>
+          <input class="cl-range" type="range" data-in="hrs" min="2" max="30" step="1" value="12">
+        </div>
+        <div>
+          <div style="display:flex; justify-content:space-between; font-size:13.5px; margin-bottom:10px;"><span style="color:#C7D0E3;">Loaded cost / hour (₹)</span><span data-out="cost" style="font-family:'Geist Mono',monospace; font-weight:600; color:#22D3EE;">400</span></div>
+          <input class="cl-range" type="range" data-in="cost" min="100" max="2000" step="50" value="400">
+        </div>
+      </div>
+    </div>
+    <div data-reveal data-reveal-delay="120" style="border-radius:22px; background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.1); padding:34px;">
+      <div style="font-family:'Geist Mono',monospace; font-size:11px; letter-spacing:.05em; text-transform:uppercase; color:#9AA6C4;">Estimated annual impact</div>
+      <div style="margin-top:14px; font-size:clamp(40px,5vw,58px); font-weight:700; letter-spacing:-.03em; line-height:1;">₹<span data-res="cost">42,00,000</span></div>
+      <div style="font-size:14px; color:#AEB7CC; margin-top:4px;">recoverable cost per year</div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:26px;">
+        <div style="background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08); border-radius:13px; padding:16px;"><div style="font-family:'Geist Mono',monospace; font-size:10px; color:#69769B; text-transform:uppercase;">Hours saved / yr</div><div style="font-size:24px; font-weight:600; margin-top:5px;"><span data-res="hours">9,800</span></div></div>
+        <div style="background:rgba(34,211,238,.1); border:1px solid rgba(34,211,238,.22); border-radius:13px; padding:16px;"><div style="font-family:'Geist Mono',monospace; font-size:10px; color:#7DE3F4; text-transform:uppercase;">FTE equivalent</div><div style="font-size:24px; font-weight:600; margin-top:5px;"><span data-res="fte">5.3</span></div></div>
+      </div>
+      <a href="Contact.dc.html" style="display:flex; align-items:center; justify-content:center; gap:9px; margin-top:24px; font-size:15px; font-weight:600; color:#0A0E1A; background:#22D3EE; text-decoration:none; padding:14px; border-radius:12px; transition:transform .2s;" style-hover="transform:translateY(-2px);">Get a precise assessment <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section style="padding:80px 0 96px;">
+  <div style="max-width:880px; margin:0 auto; padding:0 28px;">
+    <div style="text-align:center; margin-bottom:38px;" data-reveal>
+      <div style="font-family:'Geist Mono',monospace; font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:#1E40AF; margin-bottom:14px;">/ FAQ</div>
+      <h2 style="margin:0; font-size:clamp(28px,3.4vw,40px); line-height:1.04; letter-spacing:-.03em; font-weight:300;">Questions, <span style="font-weight:700;">answered straight.</span></h2>
+    </div>
+    <div data-reveal data-faq style="display:grid; gap:12px;">
+      <div data-faq-item style="border:1px solid rgba(17,22,31,.1); border-radius:14px; background:#fff; overflow:hidden;">
+        <button data-faq-q style="width:100%; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:20px 22px; background:none; border:none; cursor:pointer; font-family:inherit; text-align:left; font-size:16px; font-weight:600; color:#11161F;">How long does a project take?<svg data-faq-chev width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1E40AF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto; transition:transform .25s;"><path d="m6 9 6 6 6-6"/></svg></button>
+        <div data-faq-a style="display:none; padding:0 22px 20px; font-size:14.5px; line-height:1.6; color:#48505F;">It depends on scope. A small app or automation often ships in 2–6 weeks; a full product in a few months. You get a fixed timeline in the proposal — and we deliver on it.</div>
+      </div>
+      <div data-faq-item style="border:1px solid rgba(17,22,31,.1); border-radius:14px; background:#fff; overflow:hidden;">
+        <button data-faq-q style="width:100%; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:20px 22px; background:none; border:none; cursor:pointer; font-family:inherit; text-align:left; font-size:16px; font-weight:600; color:#11161F;">Do we have to replace our existing systems?<svg data-faq-chev width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1E40AF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto; transition:transform .25s;"><path d="m6 9 6 6 6-6"/></svg></button>
+        <div data-faq-a style="display:none; padding:0 22px 20px; font-size:14.5px; line-height:1.6; color:#48505F;">No. We build around what you already use — Tally, Zoho, your CRM, ERP, or spreadsheets — and connect to them with APIs and integrations. Zero rip-and-replace.</div>
+      </div>
+      <div data-faq-item style="border:1px solid rgba(17,22,31,.1); border-radius:14px; background:#fff; overflow:hidden;">
+        <button data-faq-q style="width:100%; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:20px 22px; background:none; border:none; cursor:pointer; font-family:inherit; text-align:left; font-size:16px; font-weight:600; color:#11161F;">How do you handle security &amp; compliance?<svg data-faq-chev width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1E40AF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto; transition:transform .25s;"><path d="m6 9 6 6 6-6"/></svg></button>
+        <div data-faq-a style="display:none; padding:0 22px 20px; font-size:14.5px; line-height:1.6; color:#48505F;">Every project is NDA-backed. We follow ISO 27001-aligned practices, secure access controls, and regular backups — and you get full ownership of the source code and your data.</div>
+      </div>
+      <div data-faq-item style="border:1px solid rgba(17,22,31,.1); border-radius:14px; background:#fff; overflow:hidden;">
+        <button data-faq-q style="width:100%; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:20px 22px; background:none; border:none; cursor:pointer; font-family:inherit; text-align:left; font-size:16px; font-weight:600; color:#11161F;">Who owns the code we pay for?<svg data-faq-chev width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1E40AF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto; transition:transform .25s;"><path d="m6 9 6 6 6-6"/></svg></button>
+        <div data-faq-a style="display:none; padding:0 22px 20px; font-size:14.5px; line-height:1.6; color:#48505F;">You do — 100%. All source code, IP, and accounts are handed over to you on delivery. Nothing is locked to us.</div>
+      </div>
+      <div data-faq-item style="border:1px solid rgba(17,22,31,.1); border-radius:14px; background:#fff; overflow:hidden;">
+        <button data-faq-q style="width:100%; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:20px 22px; background:none; border:none; cursor:pointer; font-family:inherit; text-align:left; font-size:16px; font-weight:600; color:#11161F;">What happens after launch?<svg data-faq-chev width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1E40AF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto; transition:transform .25s;"><path d="m6 9 6 6 6-6"/></svg></button>
+        <div data-faq-a style="display:none; padding:0 22px 20px; font-size:14.5px; line-height:1.6; color:#48505F;">We don't disappear. Choose a monthly retainer and we handle fixes, updates, monitoring, and new features as you grow — or take it fully in-house. Your call.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<dc-import name="ClipFooter" hint-size="100%,420px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  rootRef = React.createRef();
+  renderVals() { return { rootRef: this.rootRef }; }
+  componentDidMount() { const root = this.rootRef.current; this.setupReveal(root); this.setupCalc(root); this.setupFaq(root); this.setupResponsive(root); }
+  setupReveal(root) {
+    if (!root) return;
+    const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const els = Array.from(root.querySelectorAll('[data-reveal]'));
+    if (reduced) { els.forEach(e => e.style.opacity = 1); return; }
+    const h = () => window.innerHeight || 800;
+    els.forEach(e => { const r = e.getBoundingClientRect(); if (r.top > h() * 0.9) { e.style.opacity = 0; e.style.transform = 'translateY(26px)'; e.style.transition = 'opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1)'; } });
+    const shown = new Set();
+    const reveal = e => { if (shown.has(e)) return; shown.add(e); const d = parseFloat(e.dataset.revealDelay || 0); e.style.transitionDelay = d + 'ms'; e.style.opacity = 1; e.style.transform = 'none'; };
+    if ('IntersectionObserver' in window) { const io = new IntersectionObserver(en => { en.forEach(x => { if (x.isIntersecting) { reveal(x.target); io.unobserve(x.target); } }); }, { threshold: .12, rootMargin: '0px 0px -6% 0px' }); els.forEach(e => { if (!shown.has(e)) io.observe(e); }); }
+    const vis = e => { const r = e.getBoundingClientRect(); return r.top < h() * .92 && r.bottom > -40; };
+    const check = () => els.forEach(e => { if (!shown.has(e) && vis(e)) reveal(e); });
+    check(); requestAnimationFrame(check);
+    window.addEventListener('scroll', () => requestAnimationFrame(check), { passive: true });
+    this._safety = setTimeout(() => els.forEach(reveal), 2600);
+  }
+  setupCalc(root) {
+    const get = (k) => root.querySelector('[data-in="' + k + '"]');
+    const outs = {}; root.querySelectorAll('[data-out]').forEach(o => outs[o.dataset.out] = o);
+    const res = {}; root.querySelectorAll('[data-res]').forEach(o => res[o.dataset.res] = o);
+    const fmt = (n) => Math.round(n).toLocaleString('en-US');
+    const recompute = () => {
+      const emp = +get('emp').value, hrs = +get('hrs').value, cost = +get('cost').value;
+      if (outs.emp) outs.emp.textContent = emp; if (outs.hrs) outs.hrs.textContent = hrs; if (outs.cost) outs.cost.textContent = cost;
+      const annualHours = emp * hrs * 46 * 0.40;
+      const annualCost = annualHours * cost;
+      const fte = annualHours / 1840;
+      if (res.cost) res.cost.textContent = fmt(annualCost);
+      if (res.hours) res.hours.textContent = fmt(annualHours);
+      if (res.fte) res.fte.textContent = fte.toFixed(1);
+    };
+    ['emp', 'hrs', 'cost'].forEach(k => { const el = get(k); if (el) el.addEventListener('input', recompute); });
+    recompute();
+  }
+  setupFaq(root) {
+    root.querySelectorAll('[data-faq-item]').forEach(item => {
+      const q = item.querySelector('[data-faq-q]');
+      const a = item.querySelector('[data-faq-a]');
+      const chev = item.querySelector('[data-faq-chev]');
+      q.addEventListener('click', () => {
+        const open = a.style.display !== 'none';
+        a.style.display = open ? 'none' : 'block';
+        chev.style.transform = open ? 'rotate(0deg)' : 'rotate(180deg)';
+        item.style.borderColor = open ? 'rgba(17,22,31,.1)' : 'rgba(30,64,175,.4)';
+      });
+    });
+  }
+  setupResponsive(root) {
+    const apply = () => {
+      const w = window.innerWidth;
+      const models = root.querySelector('[data-models]');
+      if (models) {
+        if (w < 680) { models.style.gridTemplateColumns = '1fr'; Array.from(models.children).forEach(c => c.style.gridColumn = 'span 1'); }
+        else { models.style.gridTemplateColumns = 'repeat(6,1fr)'; const spans = ['span 3','span 3','span 4','span 2']; Array.from(models.children).forEach((c, i) => c.style.gridColumn = spans[i] || 'span 3'); }
+      }
+      const roi = root.querySelector('[data-roi-grid]'); if (roi) roi.style.gridTemplateColumns = w < 820 ? '1fr' : '1fr 1fr';
+    };
+    apply();
+    window.addEventListener('resize', apply);
+    this._apply = apply;
+  }
+  componentWillUnmount() { if (this._safety) clearTimeout(this._safety); if (this._apply) window.removeEventListener('resize', this._apply); }
+}
+</script>
+</body>
+</html>
