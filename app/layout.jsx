@@ -2,9 +2,9 @@ import './globals.css';
 import '@/lib/generated.css';
 
 export const metadata = {
-  title: 'Clipupp — AI & workflow automation, deployed across every department',
+  title: 'Go Unmanual — AI & workflow automation, deployed across every department',
   description:
-    'Clipupp designs, ships, and runs AI, workflow, and process automation across HR, Finance, Operations, Sales, Support, and IT — cutting cost and giving teams their time back.',
+    'Go Unmanual designs, ships, and runs AI, workflow, and process automation across HR, Finance, Operations, Sales, Support, and IT — cutting cost and giving teams their time back.',
 };
 
 export default function RootLayout({ children }) {

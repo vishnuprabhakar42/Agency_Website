@@ -12,7 +12,7 @@ const SRC = join(__dirname, '..', 'extracted');
 const OUT = join(__dirname, '..', 'lib');
 mkdirSync(OUT, { recursive: true });
 
-const BRAND = 'Clipupp';
+const BRAND = 'Go Unmanual';
 
 // source file -> { route, slug used as nav active key }
 const PAGES = {
