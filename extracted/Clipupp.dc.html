@@ -70,6 +70,19 @@
   @keyframes hp-shine{0%{transform:translateX(-130%)}55%,100%{transform:translateX(260%)}}
   .hp .hp-rec{position:relative;overflow:hidden}
   .hp .hp-rec::after{content:'';position:absolute;top:0;left:0;width:45%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.4),transparent);animation:hp-shine 4.5s ease-in-out infinite;pointer-events:none}
+  /* comparison table -> mobile: feature label on top, 3 options below */
+  @media (max-width:720px){
+    .hp .hp-cmpwrap{overflow-x:visible}
+    .hp .hp-cmp2{min-width:0}
+    .hp .hp-crow{grid-template-columns:1fr 1fr 1fr}
+    .hp .hp-crow .hp-chl{grid-column:1 / -1; padding:14px 16px 2px; font-size:13.5px; border-bottom:none}
+    .hp .hp-crow:first-child .hp-chl{display:none}
+    .hp .hp-crow .hp-ch{padding:8px 5px 13px; flex-direction:column !important; gap:5px; text-align:center; justify-content:flex-start}
+    .hp .hp-crow:first-child .hp-ch{padding:12px 5px 14px}
+    .hp .hp-crow:first-child .hp-ch span{font-size:11.5px !important}
+    .hp .hp-chip{white-space:normal; font-size:10.5px; padding:5px 8px; text-align:center; line-height:1.2}
+    .hp .hp-rec{border-radius:12px 12px 0 0 !important}
+  }
   .hp .hp-2{display:grid;grid-template-columns:1fr 1fr;gap:24px}
   .hp .hp-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
   .hp .hp-4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
@@ -100,8 +113,8 @@
   @media (max-width:820px){ .hp .hp-2{grid-template-columns:1fr} }
   @media (max-width:760px){ .hp .hp-4{grid-template-columns:repeat(2,1fr)} .hp .hp-5{grid-template-columns:repeat(2,1fr)} }
   @media (max-width:520px){ .hp .hp-4,.hp .hp-5{grid-template-columns:1fr} }
-  @media (max-width:600px){ .hp .hp-cbuild{grid-template-columns:1fr 1fr} }
-  @media (max-width:400px){ .hp .hp-cbuild{grid-template-columns:1fr} }
+  @media (max-width:600px){ .hp .hp-cbuild{grid-template-columns:repeat(2,1fr) !important} .hp .hp-ind{grid-template-columns:repeat(2,1fr) !important} }
+  @media (max-width:380px){ .hp .hp-cbuild{grid-template-columns:1fr !important} .hp .hp-ind{grid-template-columns:1fr !important} }
   @media (prefers-reduced-motion: reduce){ .hp [data-reveal]{opacity:1!important;transform:none!important} .hp *{animation-duration:.001ms!important;animation-iteration-count:1!important} }
 
 </style>
@@ -250,7 +263,7 @@
 <!-- ============ LOGO MARQUEE ============ -->
 <section style="padding:6px 0 44px; position:relative;">
   <div style="max-width:1240px; margin:0 auto 22px; padding:0 28px; display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap;">
-    <p style="margin:0; font-family:'Geist Mono',monospace; font-size:12px; letter-spacing:.05em; text-transform:uppercase; color:#7A828F;">Trusted by teams across India</p>
+    <p style="margin:0; font-family:'Geist Mono',monospace; font-size:12px; letter-spacing:.05em; text-transform:uppercase; color:#7A828F;">Automating workflows across industries</p>
     <div style="display:inline-flex; align-items:center; gap:9px; padding:6px 12px; border:1px solid rgba(30,64,175,.18); border-radius:8px; background:#fff; font-size:12.5px; color:#41495A;">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="#F59E0B" stroke="none"><path d="m12 2 2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17l-6.2 3.3 1.6-6.8L2.2 8.9l6.9-.6z"/></svg>
       Software · AI · Automation · Growth — <strong style="color:#11161F;">one team</strong>
@@ -258,27 +271,27 @@
   </div>
   <div data-marquee style="position:relative; overflow:hidden; -webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent); mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);">
     <div style="display:flex; gap:56px; width:max-content; animation:cl-marquee 36s linear infinite; align-items:center; padding:6px 28px;" data-marquee-track>
-      <span style="font-size:21px; font-weight:700; letter-spacing:-.02em; color:#9298A4;">Sharda Industries</span>
-      <span style="font-size:21px; font-weight:600; letter-spacing:.02em; color:#9298A4; font-style:italic;">TransIndia</span>
-      <span style="font-size:21px; font-weight:800; letter-spacing:-.04em; color:#9298A4;">FINOVO</span>
-      <span style="font-size:20px; font-weight:500; color:#9298A4;">MediCare</span>
-      <span style="font-size:21px; font-weight:700; color:#9298A4;">Apex Motors</span>
-      <span style="font-size:20px; font-weight:600; letter-spacing:.08em; color:#9298A4;">BRIGHTLINE</span>
-      <span style="font-size:21px; font-weight:700; letter-spacing:-.02em; color:#9298A4;">Zenith Retail</span>
-      <span style="font-size:20px; font-weight:500; color:#9298A4;">Nova Tech</span>
-      <span style="font-size:21px; font-weight:800; letter-spacing:-.03em; color:#9298A4;">URBANFOODS</span>
-      <span style="font-size:20px; font-weight:600; color:#9298A4;">Kisan Agro</span>
+      <span style="font-size:21px; font-weight:700; letter-spacing:-.02em; color:#9298A4;">Manufacturing</span>
+      <span style="font-size:21px; font-weight:600; letter-spacing:.02em; color:#9298A4; font-style:italic;">Logistics</span>
+      <span style="font-size:21px; font-weight:800; letter-spacing:-.04em; color:#9298A4;">NBFC & Lending</span>
+      <span style="font-size:20px; font-weight:500; color:#9298A4;">Healthcare</span>
+      <span style="font-size:21px; font-weight:700; color:#9298A4;">Automotive</span>
+      <span style="font-size:20px; font-weight:600; letter-spacing:.08em; color:#9298A4;">Professional Services</span>
+      <span style="font-size:21px; font-weight:700; letter-spacing:-.02em; color:#9298A4;">Retail & D2C</span>
+      <span style="font-size:20px; font-weight:500; color:#9298A4;">Technology</span>
+      <span style="font-size:21px; font-weight:800; letter-spacing:-.03em; color:#9298A4;">Food & Beverage</span>
+      <span style="font-size:20px; font-weight:600; color:#9298A4;">Agritech</span>
       <!-- duplicate for seamless loop -->
-      <span style="font-size:21px; font-weight:700; letter-spacing:-.02em; color:#9298A4;">Sharda Industries</span>
-      <span style="font-size:21px; font-weight:600; letter-spacing:.02em; color:#9298A4; font-style:italic;">TransIndia</span>
-      <span style="font-size:21px; font-weight:800; letter-spacing:-.04em; color:#9298A4;">FINOVO</span>
-      <span style="font-size:20px; font-weight:500; color:#9298A4;">MediCare</span>
-      <span style="font-size:21px; font-weight:700; color:#9298A4;">Apex Motors</span>
-      <span style="font-size:20px; font-weight:600; letter-spacing:.08em; color:#9298A4;">BRIGHTLINE</span>
-      <span style="font-size:21px; font-weight:700; letter-spacing:-.02em; color:#9298A4;">Zenith Retail</span>
-      <span style="font-size:20px; font-weight:500; color:#9298A4;">Nova Tech</span>
-      <span style="font-size:21px; font-weight:800; letter-spacing:-.03em; color:#9298A4;">URBANFOODS</span>
-      <span style="font-size:20px; font-weight:600; color:#9298A4;">Kisan Agro</span>
+      <span style="font-size:21px; font-weight:700; letter-spacing:-.02em; color:#9298A4;">Manufacturing</span>
+      <span style="font-size:21px; font-weight:600; letter-spacing:.02em; color:#9298A4; font-style:italic;">Logistics</span>
+      <span style="font-size:21px; font-weight:800; letter-spacing:-.04em; color:#9298A4;">NBFC & Lending</span>
+      <span style="font-size:20px; font-weight:500; color:#9298A4;">Healthcare</span>
+      <span style="font-size:21px; font-weight:700; color:#9298A4;">Automotive</span>
+      <span style="font-size:20px; font-weight:600; letter-spacing:.08em; color:#9298A4;">Professional Services</span>
+      <span style="font-size:21px; font-weight:700; letter-spacing:-.02em; color:#9298A4;">Retail & D2C</span>
+      <span style="font-size:20px; font-weight:500; color:#9298A4;">Technology</span>
+      <span style="font-size:21px; font-weight:800; letter-spacing:-.03em; color:#9298A4;">Food & Beverage</span>
+      <span style="font-size:20px; font-weight:600; color:#9298A4;">Agritech</span>
     </div>
   </div>
 </section>
@@ -893,7 +906,7 @@
       <h2 style="margin:0; font-size:clamp(28px,3.4vw,42px); line-height:1.04; letter-spacing:-.03em; font-weight:300; color:#11161F;">Built for businesses <span style="font-weight:700; color:#1E40AF;">like yours.</span></h2>
       <p style="margin:16px 0 0; font-size:16px; line-height:1.6; color:#48505F; max-width:560px;">We've built software, AI, and automation across a range of Indian industries — and we tailor every solution to how your sector actually works.</p>
     </div>
-    <div class="hp-4" data-reveal>
+    <div class="hp-4 hp-ind" data-reveal>
       <div class="hp-lift" style="border:1px solid rgba(17,22,31,.08); border-radius:16px; background:#fff; padding:20px;" style-hover="transform:translateY(-3px); border-color:rgba(30,64,175,.3); box-shadow:0 18px 40px -28px rgba(17,22,31,.28);"><span style="width:40px; height:40px; border-radius:11px; background:#EEF2FF; display:flex; align-items:center; justify-content:center;"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#1E40AF" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V8l6-3v3l6-3v4l6-2v14z"/><path d="M9 21v-6h4v6"/></svg></span><div style="font-size:15px; font-weight:600; margin-top:12px; color:#11161F;">Manufacturing</div><div style="font-size:12.5px; color:#7A828F; margin-top:2px;">Production, inventory, quality</div></div>
       <div class="hp-lift" style="border:1px solid rgba(17,22,31,.08); border-radius:16px; background:#fff; padding:20px;" style-hover="transform:translateY(-3px); border-color:rgba(30,64,175,.3); box-shadow:0 18px 40px -28px rgba(17,22,31,.28);"><span style="width:40px; height:40px; border-radius:11px; background:#F0FDF4; display:flex; align-items:center; justify-content:center;"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#15803D" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4zM3 6h18M16 10a4 4 0 0 1-8 0"/></svg></span><div style="font-size:15px; font-weight:600; margin-top:12px; color:#11161F;">Retail &amp; D2C</div><div style="font-size:12.5px; color:#7A828F; margin-top:2px;">Orders, catalog, loyalty</div></div>
       <div class="hp-lift" style="border:1px solid rgba(17,22,31,.08); border-radius:16px; background:#fff; padding:20px;" style-hover="transform:translateY(-3px); border-color:rgba(30,64,175,.3); box-shadow:0 18px 40px -28px rgba(17,22,31,.28);"><span style="width:40px; height:40px; border-radius:11px; background:#F3F0FE; display:flex; align-items:center; justify-content:center;"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#6D4FCF" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2.5"/><path d="M2 10h20M6 15h4"/></svg></span><div style="font-size:15px; font-weight:600; margin-top:12px; color:#11161F;">Fintech &amp; Finance</div><div style="font-size:12.5px; color:#7A828F; margin-top:2px;">KYC, lending, reconciliation</div></div>

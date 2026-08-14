@@ -92,11 +92,12 @@ function inlineImports(html) {
 }
 
 const pagesOut = {};
-let globalCss = '';
+const cssBlocks = [];
 
 for (const [name, meta] of Object.entries(PAGES)) {
   const src = read(name);
-  if (!globalCss) globalCss = helmetStyle(src);
+  const s = helmetStyle(src);
+  if (s && !cssBlocks.includes(s)) cssBlocks.push(s); // keep every page's helmet <style> (dedup identical)
   let html = rewrite(stripHelmet(xdcInner(src)));
   html = inlineImports(html);
   pagesOut[name] = {
@@ -121,7 +122,7 @@ const scriptsFile =
   `export const FOOTER_SCRIPT = ${JSON.stringify(footerScript)};\n`;
 writeFileSync(join(OUT, 'scripts.generated.js'), scriptsFile);
 
-// emit the shared keyframes/base CSS
-writeFileSync(join(OUT, 'generated.css'), `/* AUTO-GENERATED from extracted helmet <style> */\n${globalCss}\n`);
+// emit the shared keyframes/base CSS (all pages' helmet <style> blocks)
+writeFileSync(join(OUT, 'generated.css'), `/* AUTO-GENERATED from extracted helmet <style> */\n${cssBlocks.join('\n\n')}\n`);
 
 console.log('Generated', Object.keys(pagesOut).length, 'pages →', OUT);

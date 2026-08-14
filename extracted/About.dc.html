@@ -95,11 +95,41 @@
       <h2 style="margin:0; font-size:clamp(24px,2.8vw,32px); font-weight:300; letter-spacing:-.02em;">The people <span style="font-weight:700;">accountable for your number.</span></h2>
       <span style="font-family:'Geist Mono',monospace; font-size:12px; color:#7A828F;">a focused, senior team</span>
     </div>
-    <div data-team style="display:grid; grid-template-columns:repeat(4,1fr); gap:16px;">
-      <div data-reveal style="border:1px solid rgba(17,22,31,.08); border-radius:18px; background:#fff; padding:22px;"><span style="width:56px; height:56px; border-radius:14px; background:linear-gradient(135deg,#2563EB,#1E40AF); display:flex; align-items:center; justify-content:center; color:#fff; font-weight:600; font-size:18px;">AS</span><div style="margin-top:14px; font-weight:600; font-size:15.5px;">Aarav Sharma</div><div style="font-size:13px; color:#6A7180;">Founder &amp; CEO</div></div>
-      <div data-reveal data-reveal-delay="60" style="border:1px solid rgba(17,22,31,.08); border-radius:18px; background:#fff; padding:22px;"><span style="width:56px; height:56px; border-radius:14px; background:linear-gradient(135deg,#0E7490,#155E75); display:flex; align-items:center; justify-content:center; color:#fff; font-weight:600; font-size:18px;">RT</span><div style="margin-top:14px; font-weight:600; font-size:15.5px;">Rohan Tibrewal</div><div style="font-size:13px; color:#6A7180;">Co-founder &amp; CTO</div></div>
-      <div data-reveal data-reveal-delay="120" style="border:1px solid rgba(17,22,31,.08); border-radius:18px; background:#fff; padding:22px;"><span style="width:56px; height:56px; border-radius:14px; background:linear-gradient(135deg,#7A4FCF,#5B3AA6); display:flex; align-items:center; justify-content:center; color:#fff; font-weight:600; font-size:18px;">SK</span><div style="margin-top:14px; font-weight:600; font-size:15.5px;">Sneha Kapoor</div><div style="font-size:13px; color:#6A7180;">Head of Delivery</div></div>
-      <div data-reveal data-reveal-delay="180" style="border:1px solid rgba(17,22,31,.08); border-radius:18px; background:#fff; padding:22px;"><span style="width:56px; height:56px; border-radius:14px; background:linear-gradient(135deg,#B45309,#92400E); display:flex; align-items:center; justify-content:center; color:#fff; font-weight:600; font-size:18px;">DJ</span><div style="margin-top:14px; font-weight:600; font-size:15.5px;">Dev Joshi</div><div style="font-size:13px; color:#6A7180;">Lead Engineer</div></div>
+    <style>
+      [data-team-v2] .tm-card{position:relative; overflow:hidden; border:1px solid rgba(17,22,31,.08); border-radius:22px; background:#fff; padding:34px 30px 30px; transition:transform .45s cubic-bezier(.22,1,.36,1), box-shadow .45s cubic-bezier(.22,1,.36,1), border-color .45s ease;}
+      [data-team-v2] .tm-card::before{content:""; position:absolute; inset:0; background:radial-gradient(420px 220px at var(--mx,80%) var(--my,-20%), rgba(37,99,235,.10), transparent 60%); opacity:0; transition:opacity .5s ease; pointer-events:none;}
+      [data-team-v2] .tm-card::after{content:""; position:absolute; left:0; right:0; top:0; height:3px; background:linear-gradient(90deg, var(--tm-a), var(--tm-b), var(--tm-a)); background-size:200% 100%; transform:scaleX(0); transform-origin:left; transition:transform .55s cubic-bezier(.22,1,.36,1);}
+      [data-team-v2] .tm-card:hover{transform:translateY(-6px); box-shadow:0 24px 48px -20px rgba(17,22,31,.22); border-color:rgba(37,99,235,.25);}
+      [data-team-v2] .tm-card:hover::before{opacity:1;}
+      [data-team-v2] .tm-card:hover::after{transform:scaleX(1); animation:tmSheen 2.4s linear infinite;}
+      [data-team-v2] .tm-avatar{position:relative; width:72px; height:72px; border-radius:20px; background:linear-gradient(135deg, var(--tm-a), var(--tm-b)); display:flex; align-items:center; justify-content:center; color:#fff; font-weight:700; font-size:22px; letter-spacing:.02em; box-shadow:0 10px 24px -10px var(--tm-b); transition:transform .45s cubic-bezier(.22,1,.36,1);}
+      [data-team-v2] .tm-card:hover .tm-avatar{transform:scale(1.06) rotate(-3deg);}
+      [data-team-v2] .tm-avatar::after{content:""; position:absolute; inset:-5px; border-radius:24px; border:1.5px solid transparent; background:conic-gradient(from var(--tm-spin,0deg), var(--tm-a), transparent 40%, var(--tm-b) 70%, var(--tm-a)) border-box; -webkit-mask:linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0); -webkit-mask-composite:xor; mask-composite:exclude; opacity:0; transition:opacity .4s ease;}
+      [data-team-v2] .tm-card:hover .tm-avatar::after{opacity:1; animation:tmSpin 3s linear infinite;}
+      [data-team-v2] .tm-name{margin-top:20px; font-weight:700; font-size:19px; letter-spacing:-.01em;}
+      [data-team-v2] .tm-role{display:inline-flex; align-items:center; gap:7px; margin-top:9px; font-family:'Geist Mono',monospace; font-size:11.5px; letter-spacing:.06em; text-transform:uppercase; color:#4B5563; background:rgba(17,22,31,.045); border:1px solid rgba(17,22,31,.07); border-radius:999px; padding:6px 12px;}
+      [data-team-v2] .tm-role i{width:6px; height:6px; border-radius:50%; background:linear-gradient(135deg, var(--tm-a), var(--tm-b)); animation:tmPulse 2.2s ease-in-out infinite;}
+      [data-team-v2] .tm-bio{margin-top:14px; font-size:13.5px; line-height:1.55; color:#6A7180;}
+      @property --tm-spin{syntax:"<angle>"; initial-value:0deg; inherits:false;}
+      @keyframes tmSpin{to{--tm-spin:360deg;}}
+      @keyframes tmSheen{to{background-position:-200% 0;}}
+      @keyframes tmPulse{0%,100%{transform:scale(1); opacity:1;}50%{transform:scale(1.5); opacity:.55;}}
+      @media (max-width:760px){ [data-team-v2]{grid-template-columns:1fr !important;} }
+      @media (prefers-reduced-motion: reduce){ [data-team-v2] *{animation:none !important; transition:none !important;} }
+    </style>
+    <div data-team data-team-v2 style="display:grid; grid-template-columns:repeat(2,1fr); gap:20px; max-width:900px;">
+      <div class="tm-card" data-reveal style="--tm-a:#2563EB; --tm-b:#1E40AF;">
+        <span class="tm-avatar">GB</span>
+        <div class="tm-name">Garvit Bhardwaj</div>
+        <div class="tm-role"><i></i>Director — Product &amp; Strategy</div>
+        <div class="tm-bio">Owns the product vision and the strategy behind every engagement — making sure what we build moves your number.</div>
+      </div>
+      <div class="tm-card" data-reveal data-reveal-delay="90" style="--tm-a:#0E7490; --tm-b:#155E75;">
+        <span class="tm-avatar">VP</span>
+        <div class="tm-name">Vishnu Prabhakar</div>
+        <div class="tm-role"><i></i>Director — Tech &amp; Operations</div>
+        <div class="tm-bio">Runs the engineering and operations engine — systems that ship fast, stay secure, and scale without drama.</div>
+      </div>
     </div>
   </div>
 </section>
@@ -160,13 +190,20 @@ class Component extends DCLogic {
       const w = window.innerWidth;
       const a = root.querySelector('[data-approach]'); if (a) a.style.gridTemplateColumns = w < 760 ? '1fr' : 'repeat(3,1fr)';
       const vt = root.querySelector('[data-vt-grid]'); if (vt) vt.style.gridTemplateColumns = w < 820 ? '1fr' : '.85fr 1.15fr';
-      const t = root.querySelector('[data-team]'); if (t) t.style.gridTemplateColumns = w < 560 ? '1fr 1fr' : (w < 900 ? 'repeat(2,1fr)' : 'repeat(4,1fr)');
+      const t = root.querySelector('[data-team]'); if (t) t.style.gridTemplateColumns = w < 760 ? '1fr' : 'repeat(2,1fr)';
       const sg = root.querySelector('[data-sec-grid]'); if (sg) sg.style.gridTemplateColumns = w < 760 ? '1fr' : '.9fr 1.1fr';
       const b = root.querySelector('[data-badges]'); if (b) b.style.gridTemplateColumns = w < 480 ? 'repeat(2,1fr)' : 'repeat(3,1fr)';
     };
     apply();
     window.addEventListener('resize', apply);
     this._apply = apply;
+    root.querySelectorAll('[data-team-v2] .tm-card').forEach((card) => {
+      card.addEventListener('pointermove', (e) => {
+        const r = card.getBoundingClientRect();
+        card.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%');
+        card.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100) + '%');
+      });
+    });
   }
   componentWillUnmount() { if (this._safety) clearTimeout(this._safety); if (this._apply) window.removeEventListener('resize', this._apply); }
 }
