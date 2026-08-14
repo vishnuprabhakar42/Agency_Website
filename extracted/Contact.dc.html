@@ -127,7 +127,7 @@ class Component extends DCLogic {
     const successMsg = root.querySelector('[data-success-msg]');
     if (!btn) return;
     const fail = (el, msg) => { err.textContent = msg; err.style.display = 'block'; if (el) { el.style.borderColor = '#F04438'; el.focus(); } };
-    const FORM_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID'; // TODO: replace with your Formspree form ID
+    const FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzq_zKEyIbTt73UfY7e2f1sjFau5H7HXq7NHbeoStetdOmdpnq1NfQjYPFZWMuIkcjhnQ/exec';
     btn.addEventListener('click', async () => {
       err.style.display = 'none';
       const reqs = Array.from(root.querySelectorAll('[data-req]'));
@@ -150,7 +150,6 @@ class Component extends DCLogic {
       try {
         const res = await fetch(FORM_ENDPOINT, {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
           body: JSON.stringify(payload),
         });
         if (!res.ok) throw new Error('send failed');
