@@ -1,47 +1,40 @@
-# Clipupp — marketing site (Next.js)
+# Go Unmanual: marketing site (Next.js)
 
-Production Next.js port of the Clipupp B2B-automation site. 7 pages, server-rendered
-(SEO-friendly), with the original animations, hover states, scroll reveals, counters,
-tabs, filters, FAQ accordion and ROI calculator preserved.
+Product-led site for Go Unmanual. Two products are front and centre:
+
+- **Lead Management System** for real estate (`/products/lead-management`)
+- **HRMS, Payroll & Compliance** for businesses of every size (`/products/hrms-payroll`)
+
+Custom services (AI, software, automation, data, marketing, support) are still covered.
 
 ## Stack
-- Next.js 14 (App Router), React 18 — no other runtime deps
-- Fonts: Geist / Geist Mono (Google Fonts)
-- All visuals are SVG/CSS — no image assets to host
+- Next.js 14 (App Router), React 18, no other runtime dependencies
+- Fonts: Bricolage Grotesque (display), Geist (text), Geist Mono (data), all from Google Fonts
+- All styling lives in `app/globals.css` (design tokens at the top)
 
 ## Run
 ```bash
 npm install
 npm run dev      # http://localhost:3000
+npm run build && npm start
 ```
-
-## Build / deploy
-```bash
-npm run build    # regenerates page data, then next build
-npm start
-```
-Deploy to Vercel: push to GitHub, import the repo — zero config.
 
 ## Routes
 | Route | Page |
 |-------|------|
 | `/` | Home |
-| `/services` | Services |
-| `/solutions` | Solutions (by department) |
-| `/case-studies` | Case studies |
-| `/pricing` | Engagement models + ROI calc + FAQ |
-| `/about` | About |
-| `/contact` | Book a demo (form) |
+| `/products/lead-management` | Lead Management System (with leak calculator) |
+| `/products/hrms-payroll` | HRMS, Payroll & Compliance |
+| `/industries` | Real estate · Businesses (HR) · Insurance · others (`/solutions` redirects here) |
+| `/services` | Custom services |
+| `/case-studies` | Opaks Realty + other work |
+| `/pricing` | How we engage + FAQ |
+| `/about` | About, team, security |
+| `/contact` | Book a demo (form posts to Google Apps Script) |
 
-## How it works / editing
-- Source design lives in `extracted/*.dc.html` (the Claude-design export).
-- `scripts/build.mjs` extracts each page's markup + behavior script, inlines the
-  shared nav/footer, rewrites links to routes, and writes `lib/*.generated.*`.
-- `components/PageRuntime.jsx` runs the page behavior scripts on the client and
-  wires `style-hover`.
-- To change copy now: edit the HTML in `extracted/*.dc.html`, then `npm run gen`.
-  (Longer term these can be refactored into hand-written React components.)
-
-## Brand rename
-The name "Clipupp" is set in `scripts/build.mjs` (`const BRAND`). Change it and run
-`npm run gen`.
+## Editing
+- Brand, contact details, form endpoint, product names and nav: `lib/site.js`
+- Shared pieces: `components/` (`Nav`, `Footer`, `HeroConsole` animated demo,
+  `LeakPipe`, `LeakCalculator`, `ContactForm`, `Blocks` for CTA/FAQ/section heads)
+- Client logos: `public/clients/`
+- Add `className="rv"` to any element to fade it in on scroll.
